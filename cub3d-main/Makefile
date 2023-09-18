@@ -5,7 +5,7 @@ CFLAGS=-Wall -Wextra -Werror #-fsanitize=address
 SRC= main.c\
 get_next_line/get_next_line.c\
 get_next_line/get_next_line_utils.c\
-parsing/read_map.c\
+parsing/read_map.c parsing/read_map_1.c\
 parsing/path.c\
 parsing/map.c\
 parsing/split_again.c\

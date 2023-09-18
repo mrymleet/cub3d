@@ -29,6 +29,12 @@ typedef struct s_all
 
     int i;
     int j;
+
+    int height;
+    int width;
+
+    void    *mlx;
+    void    *win;
 } t_all;
 
 //parsing
@@ -65,5 +71,9 @@ int empty(t_all *all, char c);
 int up_down(t_all *all, int i); //check for the last one
 int right_left(t_all *all, int i);
 void    map_error(int err);
+//----
+char	**read_map_1(t_all all, char *path);
+int     is_line_empty(char *line);
+int	count_lines(char *path);
 
 #endif
