@@ -2,39 +2,62 @@
 #define CUB3D
 
 #include <fcntl.h>
+# include <math.h>
 #include "libft/libft.h"
 #include "get_next_line/get_next_line.h"
-
+#include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
 
 #include <stdio.h>
 // #include <unistd.h>
+#define WIDTH 1200
+#define HEIGHT 600
+
+#define SQUARE_SIZE 50
+#define PLAYER_SIZE 10
+#define SCALE 1
+#define STEP 2
+
+typedef struct s_point{
+	float x;
+	float y;
+} t_point;
+
+typedef struct s_game{
+	mlx_t    *mlx;
+	mlx_image_t     *img_2d;
+	mlx_image_t     *img_3d;
+	// int				player_x;
+	// int				player_y;
+	t_point    position;
+	float		player_ang;
+}	t_game;
+
+
 
 typedef struct s_all
 {
-    char    **map;
-    char    *line;
-    char     **tmp;
-    char       *str;
+	char    **map;
+	char    *line;
+	char     **tmp;
+	char       *str;
 
-    int F;//wall
-    int C;//space
+	int F;//wall
+	int C;//space
 
-    int NO;
-    int SO;
-    int EA;
-    int WE;
+	int NO;
+	int SO;
+	int EA;
+	int WE;
 
-    int wid;
-    int count;
+	int wid;
+	int count;
 
-    int i;
-    int j;
+	int i;
+	int j;
 
-    int height;
-    int width;
-
-    void    *mlx;
-    void    *win;
+	int height;
+	int width;
+	t_game  *game;
 } t_all;
 
 //parsing
@@ -72,8 +95,26 @@ int up_down(t_all *all, int i); //check for the last one
 int right_left(t_all *all, int i);
 void    map_error(int err);
 //----
-char	**read_map_1(t_all all, char *path);
+char	**read_map_1(t_all *all, char *path);
 int     is_line_empty(char *line);
 int	count_lines(char *path);
+void	free_2_dimensions(char **str);
+int	ft_get_width(char **s);
+int	ft_get_height(char **s);
 
+
+void	create_window_and_images(t_all *all);
+void	build_window(t_all *all);
+void    draw_block(mlx_image_t *canvas, double point[2], long color);
+void    draw_play(mlx_image_t *canva, t_point position, long color);
+long    specify_color(char c);
+void	close_window(void* param);
+void    clear_window(t_all *all);
+void	moving_hook(void *param);
+// void	draw_direction(t_all *all);
+float	bound_angle(float angle);
+void	draw_direction(t_all *all, float x0, float x1, float y0, float y1);
+void    draw_line(t_all *data);
+
+int ft_abs(float n);
 #endif

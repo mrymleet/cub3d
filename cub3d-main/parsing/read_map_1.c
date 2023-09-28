@@ -1,6 +1,6 @@
 #include "../cub3d.h"
 
-char	**read_map_1(t_all __unused all, char *path)
+char	**read_map_1(t_all __unused *all, char *path)
 {
 	char	**res=NULL;
 	int		fd;
@@ -23,7 +23,7 @@ char	**read_map_1(t_all __unused all, char *path)
 		if (count == 6)
 			break;
 	}
-	res = malloc(count_lines(path) * (sizeof(char *) + 1));
+	res = malloc((count_lines(path) + 1) * (sizeof(char *) + 1));
 	if (!res)
 		exit(1);
 	while (1)
