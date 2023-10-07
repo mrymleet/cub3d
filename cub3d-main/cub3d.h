@@ -17,22 +17,30 @@
 #define SCALE 1
 #define STEP 2
 
-typedef struct s_point{
+typedef struct s_point
+{
 	float x;
 	float y;
 } t_point;
+
+typedef struct s_ray
+{
+	float wall_hit_x;
+	float wall_hit_y;
+	float distance;
+	int is_horz;
+}	t_ray;
 
 typedef struct s_game{
 	mlx_t    *mlx;
 	mlx_image_t     *img_2d;
 	mlx_image_t     *img_3d;
-	// int				player_x;
-	// int				player_y;
 	t_point    position;
 	float		player_ang;
+	t_ray		ray;
 }	t_game;
 
-
+	
 
 typedef struct s_all
 {
@@ -106,15 +114,22 @@ int	ft_get_height(char **s);
 void	create_window_and_images(t_all *all);
 void	build_window(t_all *all);
 void    draw_block(mlx_image_t *canvas, double point[2], long color);
-void    draw_play(mlx_image_t *canva, t_point position, long color);
+void    draw_play(t_all *all, long color);
 long    specify_color(char c);
 void	close_window(void* param);
 void    clear_window(t_all *all);
 void	moving_hook(void *param);
 // void	draw_direction(t_all *all);
 float	bound_angle(float angle);
-void	draw_direction(t_all *all, float x0, float x1, float y0, float y1);
-void    draw_line(t_all *data);
+void    draw_ray(t_all *data, t_point src, t_ray ray);
+void    draw_rays(t_all *data);
 
 int ft_abs(float n);
+
+// float	get_hor_distance(t_all *all, float angle);
+// float	get_ver_distance(t_all *all, float angle);
+// void	get_distance_wall(t_all *all, float angle);
+float	distace_two_points(t_point src, t_point dst);
+int		point_reach_wall(t_all *all, t_point p);
+t_ray    ray_cast(t_all *all, float angle);
 #endif

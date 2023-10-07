@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
+/*   Updated: 2023/10/06 22:21:00 by mdenguir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void    draw_block(mlx_image_t *canvas, double point[2], long color)
@@ -30,14 +42,14 @@ void    draw_block(mlx_image_t *canvas, double point[2], long color)
 	}
 }
 
-void    draw_play(mlx_image_t *canva, t_point position, long color)
+void    draw_play(t_all *all, long color)
 {
 	int            col;
 	int            row;
 	t_point    location;
-printf("-->%f | %f\n", position.x, position.y);
-	location.x = position.x;
-	location.y = position.y;
+// printf("-->%f | %f\n", position.x, position.y);
+	location.x = all->game->position.x;
+	location.y =  all->game->position.y;
 	row = -1;
 	while (++row < PLAYER_SIZE)
 	{
@@ -46,76 +58,95 @@ printf("-->%f | %f\n", position.x, position.y);
 		{
 			if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
 					&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
-					mlx_put_pixel(canva, (location.x + col) / SCALE, (location.y + row) / SCALE, color);
+					mlx_put_pixel( all->game->img_2d, (location.x + col) / SCALE, (location.y + row) / SCALE, color);
 		}
 	}
+	// draw_line(all);
 }
 
-void    draw_line(t_all *data)
+void    draw_rays(t_all *data)
 {
-    float        step;
-    int            i;
-    t_point    p1;
-    t_point    p2;
-    t_point    d;
-printf("-->%f\n", data->game->player_ang);
-    p1.x = (data->game->position.y + 5);
-    p1.y = (data->game->position.x + 5);
-    p2.x = p1.x + sin(data->game->player_ang * (M_PI / 180)) * SQUARE_SIZE;
-    p2.y = p1.y + cos(data->game->player_ang * (M_PI / 180)) * SQUARE_SIZE;
-    d.x = p2.x - p1.x;
-    d.y = p2.y - p1.y;
-    step = fabs(d.y);
-    if (fabs(d.x) > fabs(d.y))
-        step = fabs(d.x);
-    i = -1;
-    while (++i < step && step < INT_MAX)
-    {
-        if ((p1.x / SCALE >= 0 && p1.x / SCALE < WIDTH)
-            && (p1.y / SCALE >= 0 && p1.y / SCALE < HEIGHT))
-            mlx_put_pixel(data->game->img_2d, p1.y / SCALE,
-                p1.x / SCALE, 0xFF0000FF);
-        p1.x += (d.x) / step;
-        p1.y += (d.y) / step;
-    }
-}
+	int            i;
+	t_ray		ray;
+	float		var_ang;
+	float 		ang_step;
 
-void	draw_direction(t_all *all, float x0, float y0, float x1, float y1)
-{
-	float		dx;
-	float		dy;
-	int 		steps;
-	float		varX;
-	float		varY;
-	float x,y;
-	int		i;
-
-	dx = x1 - x0;
-	dy = y1 - y0;
-	steps = ft_abs(dx) > ft_abs(dy) ? ft_abs(dx) : ft_abs(dy);
-	varX = dx / (float)steps;
-	varY = dy / (float)steps;
-	i	= 0;
-	x = x0;
-	y = y0;
-	while (i <= steps)
+	ang_step = 60.0 / WIDTH;
+	var_ang = data->game->player_ang - 30;
+	var_ang = bound_angle(var_ang);
+	i = -1;
+	// printf("Player y= %f | x= %f\n", data->game->position.y, data->game->position.x);
+	while (++i < WIDTH)
 	{
-		mlx_put_pixel(all->game->img_2d, y, x, 0xFF0000FF);
-		x += varX;
-		y += varY;
-		i++;
+		ray = ray_cast(data, var_ang);
+		// ray.wall_hit_x = data->game->position.x + cos(data->game->player_ang * (M_PI / 180)) * SQUARE_SIZE;
+		// ray.wall_hit_y = data->game->position.y + sin(data->game->player_ang * (M_PI / 180)) * SQUARE_SIZE;
+		// printf("src -> x = %f | y = %f\n", data->game->position.x, data->game->position.y);
+		// printf("dst -> x = %f | y = %f\n", ray.wall_hit_x, ray.wall_hit_y);
+		// ray.distance = 10;
+		draw_ray(data, data->game->position, ray);
+		var_ang += ang_step;
+		var_ang = bound_angle(var_ang);
 	}
 }
 
-long    specify_color(char c)
+
+
+// void	draw_ray(t_all *data, t_point target)
+// {
+// 	float		step;
+// 	t_point		p1;
+// 	t_point		d;
+
+// 	p1.x = (data->game->position.y);
+// 	p1.y = (data->game->position.x);
+// 	d.x = target.x - p1.x;
+// 	d.y = target.y - p1.y;
+// 	// step = fabs(d.y);
+// 	// if (fabs(d.x) > fabs(d.y))
+// 	// 	step = fabs(d.x);
+
+// 	while (1)
+// 	{
+		
+// 		if ((p1.x / SCALE > 0 && p1.x / SCALE < HEIGHT)
+// 			&& (p1.y / SCALE > 0 && p1.y / SCALE < WIDTH))
+// 			{
+// 				if (data->map[(int)(p1.x + 1) / SQUARE_SIZE][(int)(p1.y) / SQUARE_SIZE] == '1'
+// 				|| data->map[(int)p1.x / SQUARE_SIZE][(int)(p1.y + 1) / SQUARE_SIZE] == '1'
+// 				|| data->map[(int)(p1.x - 1) / SQUARE_SIZE][(int)(p1.y) / SQUARE_SIZE] == '1'
+// 				|| data->map[(int)p1.x / SQUARE_SIZE][(int)(p1.y - 1) / SQUARE_SIZE] == '1')
+// 					break;
+// 				mlx_put_pixel(data->game->img_2d, p1.y / SCALE,
+// 					p1.x / SCALE, 0xFF0000FF);
+// 			}
+// 		p1.x += (d.x) / step;
+// 		p1.y += (d.y) / step;
+// 	}
+// }
+
+
+
+
+float	distace_two_points(t_point src, t_point dst)
 {
-	if (c == '0' || c == 'N')
+	// printf("src -> x = %f | y = %f\n", src.x, src.y);
+	// printf("dst -> x = %f | y = %f\n", dst.x, dst.y);
+	return (sqrt(pow((src.x - dst.x), 2)
+	+ pow((src.y - dst.y), 2)));
+}
+
+
+
+long	specify_color(char c)
+{
+	if (c == '0')
 		return (0xFFFFFF);
 	else if(c == '1')
 		return (0x0000FF);
-	else if (c == ' ')
+	else
 		return (0x000000);
-	return (-1);
+
 }
 
 

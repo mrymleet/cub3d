@@ -91,16 +91,12 @@ int main(int ac, char **av)
 	// free_2_dimensions(all.map);
 	all.i = 1;
 	all.map = read_map_1(&all, av[1]);
-	// all.height = ft_get_height(all.map);
-	// all.width = ft_get_width(all.map) - 1;
+	
 	create_window_and_images(&all);
-	
-	
 	all.game->position.x = -1;
 	all.game->position.y = -1;
 	all.game->player_ang = 90;
-	build_window(&all);
-	
+	// build_window(&all);
 	mlx_loop_hook(all.game->mlx, close_window, &all);
 	mlx_loop_hook(all.game->mlx, moving_hook, &all);
 	mlx_loop(all.game->mlx);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   build.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
+/*   Updated: 2023/10/06 22:41:13 by mdenguir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	create_window_and_images(t_all *all)
@@ -32,19 +44,20 @@ void	build_window(t_all *all)
 			{
 				if (all->game->position.y == -1 || all->game->position.x == -1)
 				{
-					point[0] = index_x * SQUARE_SIZE;
-					point[1] = index_y * SQUARE_SIZE;
-					all->game->position.x = index_x * SQUARE_SIZE + 10;
-					all->game->position.y = index_y * SQUARE_SIZE + 10;
-				draw_block(all->game->img_2d, point, specify_color('N'));		
-					
+					point[0] = index_y * SQUARE_SIZE;
+					point[1] = index_x * SQUARE_SIZE;
+					all->game->position.x = index_x * SQUARE_SIZE;
+					all->game->position.y = index_y * SQUARE_SIZE;
+					all->map[index_y][index_x] = '0';
+				
 				}
+				// draw_block(all->game->img_2d, point, specify_color(all->map[index_y][index_x]));		
 			}
 			index_x++;
 		}
 		index_y++;		
 	}
-	// draw_play(all->game->img_2d, all->game->position, 0xFF0000FF);
-	draw_line(all);
+	// draw_play(all, 0xFF0000FF);
+	draw_rays(all);
 }
 
