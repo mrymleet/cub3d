@@ -131,5 +131,10 @@ int ft_abs(float n);
 // void	get_distance_wall(t_all *all, float angle);
 float	distace_two_points(t_point src, t_point dst);
 int		point_reach_wall(t_all *all, t_point p);
-t_ray    ray_cast(t_all *all, float angle);
+int count_rows(char **str);
+int count_cols(char *str);
+t_ray    ray_cast(t_all *data, float angle);
+t_ray   get_inters_vertical(t_all *data, float angle);
+t_ray   get_inters_horizontals(t_all *data, float angle);
+
 #endif
