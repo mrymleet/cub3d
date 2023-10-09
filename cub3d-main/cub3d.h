@@ -14,7 +14,7 @@
 
 #define SQUARE_SIZE 50
 #define PLAYER_SIZE 10
-#define SCALE 1
+#define SCALE 3
 #define STEP 2
 
 typedef struct s_point
@@ -136,5 +136,5 @@ int count_cols(char *str);
 t_ray    ray_cast(t_all *data, float angle);
 t_ray   get_inters_vertical(t_all *data, float angle);
 t_ray   get_inters_horizontals(t_all *data, float angle);
-
+void    build_wall(t_all *data, t_ray ray, int i, float ang);
 #endif

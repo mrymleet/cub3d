@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:04 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/07 08:49:07 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:52:55 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ void    clear_window(t_all *all)
 		}
 	}
 }	
-
+void clear(t_all *all){
+	int y = 0;
+	while (y++ < HEIGHT){
+		int x = 0;
+		while (x++ < WIDTH)
+			mlx_put_pixel(all->game->img_3d, x, y, 0xff00000);
+	}
+}
 void	moving_hook(void *param)
 {
 	t_all *all;
@@ -37,7 +44,7 @@ void	moving_hook(void *param)
 
 	des.x = cos(all->game->player_ang * (M_PI / 180));
 	des.y = sin(all->game->player_ang * (M_PI / 180));
-
+	clear(all);
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_W))
 	{
 		if (all->map[(int)(all->game->position.y + 3 * des.y + 1) / SQUARE_SIZE][(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
@@ -45,8 +52,8 @@ void	moving_hook(void *param)
 		&& all->map[(int)(all->game->position.y + 3 * des.y - 1) / SQUARE_SIZE][(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
 		&& all->map[(int)(all->game->position.y + 3 * des.y) / SQUARE_SIZE][(int)(all->game->position.x + 3 * des.x - 1) / SQUARE_SIZE] != '1')
 		{
-			all->game->position.x += des.x;
-			all->game->position.y += des.y;
+			all->game->position.x += 2 * des.x;
+			all->game->position.y += 2 * des.y;
 		}
 	}
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_D))
@@ -56,8 +63,8 @@ void	moving_hook(void *param)
 		&& all->map[(int)(all->game->position.y + 3 * des.x - 1) / SQUARE_SIZE][(int)(all->game->position.x - 3 * des.y) / SQUARE_SIZE] != '1'
 		&& all->map[(int)(all->game->position.y + 3 * des.x) / SQUARE_SIZE][(int)(all->game->position.x - 3 * des.y - 1) / SQUARE_SIZE] != '1')
 		{
-			all->game->position.x -= des.y;
-			all->game->position.y += des.x;
+			all->game->position.x -= 2 * des.y;
+			all->game->position.y += 2 * des.x;
 		}
 	}
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_S))
@@ -67,8 +74,8 @@ void	moving_hook(void *param)
 		&& all->map[(int)(all->game->position.y - 3 * des.y - 1) / SQUARE_SIZE][(int)(all->game->position.x - 3 * des.x) / SQUARE_SIZE] != '1'
 		&& all->map[(int)(all->game->position.y - 3 * des.y) / SQUARE_SIZE][(int)(all->game->position.x - 3 * des.x - 1) / SQUARE_SIZE] != '1')
 		{
-			all->game->position.x -= des.x;
-			all->game->position.y -= des.y;
+			all->game->position.x -= 2 * des.x;
+			all->game->position.y -= 2 * des.y;
 		}
 	}
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_A))
@@ -78,19 +85,19 @@ void	moving_hook(void *param)
 		&& all->map[(int)(all->game->position.y - 3 * des.x - 1) / SQUARE_SIZE][(int)(all->game->position.x + 3 * des.y) / SQUARE_SIZE] != '1'
 		&& all->map[(int)(all->game->position.y - 3 * des.x) / SQUARE_SIZE][(int)(all->game->position.x + 3 * des.y - 1) / SQUARE_SIZE] != '1')
 		{
-			all->game->position.x += des.y;
-			all->game->position.y -= des.x;
+			all->game->position.x += 2 * des.y;
+			all->game->position.y -= 2 * des.x;
 		}
 	}
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_LEFT))
 	{
-		all->game->player_ang =  bound_angle(all->game->player_ang + 3);
+		all->game->player_ang =  bound_angle(all->game->player_ang - 3);
 	}
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_RIGHT))
 	{
-		all->game->player_ang =  bound_angle(all->game->player_ang - 3);
+		all->game->player_ang =  bound_angle(all->game->player_ang + 3);
 	}
-	printf("angle = %f\n", all->game->player_ang);
+	// printf("angle = %f\n", all->game->player_ang);
 	build_window(all);
 }
 

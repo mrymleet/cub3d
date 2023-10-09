@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/06 22:21:00 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:02:51 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void    draw_play(t_all *all, long color)
 	int            col;
 	int            row;
 	t_point    location;
-// printf("-->%f | %f\n", position.x, position.y);
+
 	location.x = all->game->position.x;
 	location.y =  all->game->position.y;
 	row = -1;
@@ -61,7 +61,6 @@ void    draw_play(t_all *all, long color)
 					mlx_put_pixel( all->game->img_2d, (location.x + col) / SCALE, (location.y + row) / SCALE, color);
 		}
 	}
-	// draw_line(all);
 }
 
 void    draw_rays(t_all *data)
@@ -75,63 +74,20 @@ void    draw_rays(t_all *data)
 	var_ang = data->game->player_ang - 30;
 	var_ang = bound_angle(var_ang);
 	i = -1;
-	// printf("Player y= %f | x= %f\n", data->game->position.y, data->game->position.x);
 	while (++i < WIDTH)
 	{
 		ray = ray_cast(data, var_ang);
-		// ray.wall_hit_x = data->game->position.x + cos(data->game->player_ang * (M_PI / 180)) * SQUARE_SIZE;
-		// ray.wall_hit_y = data->game->position.y + sin(data->game->player_ang * (M_PI / 180)) * SQUARE_SIZE;
-		// printf("src -> x = %f | y = %f\n", data->game->position.x, data->game->position.y);
-		// printf("dst -> x = %f | y = %f\n", ray.wall_hit_x, ray.wall_hit_y);
-		// ray.distance = 10;
+		// printf("distance = %f\n", ray.distance);
 		draw_ray(data, data->game->position, ray);
+		
+		build_wall(data, ray, i, var_ang);
 		var_ang += ang_step;
 		var_ang = bound_angle(var_ang);
 	}
 }
 
-
-
-// void	draw_ray(t_all *data, t_point target)
-// {
-// 	float		step;
-// 	t_point		p1;
-// 	t_point		d;
-
-// 	p1.x = (data->game->position.y);
-// 	p1.y = (data->game->position.x);
-// 	d.x = target.x - p1.x;
-// 	d.y = target.y - p1.y;
-// 	// step = fabs(d.y);
-// 	// if (fabs(d.x) > fabs(d.y))
-// 	// 	step = fabs(d.x);
-
-// 	while (1)
-// 	{
-		
-// 		if ((p1.x / SCALE > 0 && p1.x / SCALE < HEIGHT)
-// 			&& (p1.y / SCALE > 0 && p1.y / SCALE < WIDTH))
-// 			{
-// 				if (data->map[(int)(p1.x + 1) / SQUARE_SIZE][(int)(p1.y) / SQUARE_SIZE] == '1'
-// 				|| data->map[(int)p1.x / SQUARE_SIZE][(int)(p1.y + 1) / SQUARE_SIZE] == '1'
-// 				|| data->map[(int)(p1.x - 1) / SQUARE_SIZE][(int)(p1.y) / SQUARE_SIZE] == '1'
-// 				|| data->map[(int)p1.x / SQUARE_SIZE][(int)(p1.y - 1) / SQUARE_SIZE] == '1')
-// 					break;
-// 				mlx_put_pixel(data->game->img_2d, p1.y / SCALE,
-// 					p1.x / SCALE, 0xFF0000FF);
-// 			}
-// 		p1.x += (d.x) / step;
-// 		p1.y += (d.y) / step;
-// 	}
-// }
-
-
-
-
 float	distace_two_points(t_point src, t_point dst)
 {
-	// printf("src -> x = %f | y = %f\n", src.x, src.y);
-	// printf("dst -> x = %f | y = %f\n", dst.x, dst.y);
 	return (sqrt(pow((src.x - dst.x), 2)
 	+ pow((src.y - dst.y), 2)));
 }
@@ -147,13 +103,4 @@ long	specify_color(char c)
 	else
 		return (0x000000);
 
-}
-
-
-int ft_abs(float n)
-{
-	if (n > 0)
-		return (n);
-	else
-		return (n * (-1));
 }
