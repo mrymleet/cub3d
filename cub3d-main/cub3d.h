@@ -25,8 +25,8 @@ typedef struct s_point
 
 typedef struct s_int_point
 {
-	float x;
-	float y;
+	int x;
+	int y;
 } t_int_point;
 
 typedef struct s_ray
@@ -34,11 +34,12 @@ typedef struct s_ray
 	float wall_hit_x;
 	float wall_hit_y;
 	float distance;
+	float	angle;
 	int is_horz;
-	int		is_facing_down;
-	int		is_facing_up;
-	int		is_facing_right;
-	int		is_facing_left;
+	// int		is_facing_down;
+	// int		is_facing_up;
+	// int		is_facing_right;
+	// int		is_facing_left;
 }	t_ray;
 
 typedef struct s_game{

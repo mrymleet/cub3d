@@ -56,9 +56,9 @@ int main(int ac, __unused char **av)
 	
 	create_window_and_images(&all);
     all.textures[0] = mlx_load_png("./textures/image.png");
-	all.textures[1] = mlx_load_png("./textures/image.png");
+	all.textures[1] = mlx_load_png("./textures/m.png");
 	all.textures[2] = mlx_load_png("./textures/image.png");
-	all.textures[3] = mlx_load_png("./textures/image.png");
+	all.textures[3] = mlx_load_png("./textures/m.png");
 	// printf("-->%d\n", all.game->img->width);
 	all.game->position.x = -1;
 	all.game->position.y = -1;

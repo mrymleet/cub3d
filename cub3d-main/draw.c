@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/18 13:36:28 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:33:48 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,7 @@ void    draw_rays(t_all *data)
 		ray.distance = ray.distance
 			* cos((var_ang - data->game->player_ang) * (M_PI / 180));
 		draw_ray(data, data->game->position, ray);
-		// if (((int)var_ang % 90) == 0)
-			// printf("ang ->%f distance = %f\n", var_ang, ray.distance);
 		build_wall(data, ray, i);
-		
 		var_ang += ang_step;
 		var_ang = bound_angle(var_ang);
 	}

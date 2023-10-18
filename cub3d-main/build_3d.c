@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:38:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/16 22:42:00 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/18 17:29:23 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ void    build_wall(t_all *data, t_ray ray, int i)
     t_point  p;
 
     p.x = i;
-    p.y = ((HEIGHT / 2) - (((HEIGHT   ) * SQUARE_SIZE) / ray.distance));
+    p.y = ((HEIGHT / 2) - (((HEIGHT / 2) * SQUARE_SIZE) / ray.distance));
     draw_columns(data, p, HEIGHT - (p.y * 2), ray);
-	// p.y = (HEIGHT / 2) - (1000 / ray.distance / 2);
-	// draw_columns(data, p, (1000 / ray.distance), ray);
 }
 
 void	draw_columns(t_all *data, t_point p, float height, t_ray ray)
@@ -35,17 +33,17 @@ void	draw_columns(t_all *data, t_point p, float height, t_ray ray)
 	if (ray.is_horz)
 	{
 		texture = data->textures[0];
-		if (ray.is_facing_up)
+		if (ray.angle < 0 || ray.angle > 180)
 			texture = data->textures[1];
-		width_ratio = (float)((float)texture->width / (float) SQUARE_SIZE);
+		width_ratio = (float)(texture->width / SQUARE_SIZE);
 		tex.x = fmod(ray.wall_hit_x, SQUARE_SIZE) * (width_ratio);
 	}
 	else
 	{
 		texture = data->textures[2];
-		if (ray.is_facing_left)
+		if (ray.angle < 270 && ray.angle > 90)
 			texture = data->textures[3];
-		width_ratio = (float)((float)texture->width / (float)SQUARE_SIZE);
+		width_ratio = (float)(texture->width / SQUARE_SIZE);
 		tex.x = fmod(ray.wall_hit_y, SQUARE_SIZE) * (width_ratio);
 	}
     draw_text(data, img, tex, height, texture);
@@ -69,13 +67,14 @@ void	draw_text(t_all *data, t_point img, t_point ttex, float h, mlx_texture_t *t
 		p2.y = 0;
 	while (++p2.y < (int)data->game->img_3d->height - 1 && ++p1.y < h - 1)
 	{
-		ttex.y = p1.y * ((float) tex->height / (float) h);
+		ttex.y = p1.y * (float) tex->height / h;
 		if (ttex.y < tex->height
 			&& (ttex.y * tex->width + p1.x) < tex->width * tex->height)
 		{
-			px = &tex->pixels[(int)(((int)ttex.y * tex->width) + p1.x) * tex->bytes_per_pixel];
-			pi = &data->game->img_3d->pixels[(int)((p2.y * (data->game->img_3d->width)) + p2.x) * tex->bytes_per_pixel];
-			memmove(pi, px, tex->bytes_per_pixel);
+			px = &tex->pixels[((int)ttex.y * tex->width + p1.x) * tex->bytes_per_pixel];
+			pi = &data->game->img_3d->pixels[(p2.y * (data->game->img_3d->width) + p2.x) * tex->bytes_per_pixel];
+			
+			ft_memmove(pi, px, tex->bytes_per_pixel);
 		}
 	}
 }
