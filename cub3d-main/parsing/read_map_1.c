@@ -31,8 +31,9 @@ char	**read_map_1(t_all __unused *all, char *path)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		res[i++] = ft_strdup(line);
+		res[i] = ft_strdup(line);
 		free(line);
+		i++;
 	}
 	res[i] = 0;
 	return (res);
@@ -40,7 +41,7 @@ char	**read_map_1(t_all __unused *all, char *path)
 
 int is_line_empty(char *line)
 {
-	int     index;
+	int		index;
 
 	index = 0;
 	if (line[0] == '\n')

@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:41:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/07 18:57:58 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:32:30 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,16 @@ t_ray   get_inters_horizontals(t_all *data, float angle)
     float       y_step;
     t_point     p_check;
 
+    ray.is_facing_down = (angle > 0 && angle < 180);
+	ray.is_facing_up = !ray.is_facing_down;
+	ray.is_facing_right = (angle < 90 || angle > 270);
+	ray.is_facing_left = !ray.is_facing_right;
+
+    
     p_intercept_h.y = floor(data->game->position.y / SQUARE_SIZE) * SQUARE_SIZE;
-    if (angle > 0 && angle < 180)
+    if (ray.is_facing_down)
 	    p_intercept_h.y += SQUARE_SIZE;
-    if (angle < 0 || angle > 180)
+    if (ray.is_facing_up)
          p_intercept_h.y -= 0.001;
     p_intercept_h.x = data->game->position.x + (p_intercept_h.y - data->game->position.y) / tan(angle * (M_PI / 180));
     y_step = SQUARE_SIZE;
@@ -50,6 +56,7 @@ t_ray   get_inters_horizontals(t_all *data, float angle)
         ray.wall_hit_x = p_intercept_h.x;
         ray.wall_hit_y = p_intercept_h.y;
         ray.distance = distace_two_points(data->game->position, p_intercept_h);
+        ray.is_horz = 1;
     // }
     return (ray);
 }

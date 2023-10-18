@@ -6,7 +6,7 @@
 #include "libft/libft.h"
 #include "get_next_line/get_next_line.h"
 #include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
-
+#include <string.h> // ................to remove
 #include <stdio.h>
 // #include <unistd.h>
 #define WIDTH 1200
@@ -23,18 +23,32 @@ typedef struct s_point
 	float y;
 } t_point;
 
+typedef struct s_int_point
+{
+	float x;
+	float y;
+} t_int_point;
+
 typedef struct s_ray
 {
 	float wall_hit_x;
 	float wall_hit_y;
 	float distance;
 	int is_horz;
+	int		is_facing_down;
+	int		is_facing_up;
+	int		is_facing_right;
+	int		is_facing_left;
 }	t_ray;
 
 typedef struct s_game{
 	mlx_t    *mlx;
 	mlx_image_t     *img_2d;
 	mlx_image_t     *img_3d;
+	mlx_texture_t	*img;
+	// mlx_texture_t	*SO;
+	// mlx_texture_t	*WE;
+	// mlx_texture_t	*EA;
 	t_point    position;
 	float		player_ang;
 	t_ray		ray;
@@ -48,6 +62,7 @@ typedef struct s_all
 	char    *line;
 	char     **tmp;
 	char       *str;
+	mlx_texture_t	*textures[4];
 
 	int F;//wall
 	int C;//space
@@ -119,16 +134,10 @@ long    specify_color(char c);
 void	close_window(void* param);
 void    clear_window(t_all *all);
 void	moving_hook(void *param);
-// void	draw_direction(t_all *all);
 float	bound_angle(float angle);
 void    draw_ray(t_all *data, t_point src, t_ray ray);
 void    draw_rays(t_all *data);
 
-int ft_abs(float n);
-
-// float	get_hor_distance(t_all *all, float angle);
-// float	get_ver_distance(t_all *all, float angle);
-// void	get_distance_wall(t_all *all, float angle);
 float	distace_two_points(t_point src, t_point dst);
 int		point_reach_wall(t_all *all, t_point p);
 int count_rows(char **str);
@@ -136,5 +145,8 @@ int count_cols(char *str);
 t_ray    ray_cast(t_all *data, float angle);
 t_ray   get_inters_vertical(t_all *data, float angle);
 t_ray   get_inters_horizontals(t_all *data, float angle);
-void    build_wall(t_all *data, t_ray ray, int i, float ang);
+void    build_wall(t_all *data, t_ray ray, int i);
+void	draw_columns(t_all *data, t_point p, float height, t_ray ray);
+void	draw_text(t_all *data, t_point img, t_point ttex, float h, mlx_texture_t *tex);
+// void    load_texture(t_all *data);
 #endif

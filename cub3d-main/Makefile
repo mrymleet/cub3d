@@ -22,10 +22,10 @@ all: $(NAME)
 $(libft):
 	make -C libft
 
-$(NAME): $(OBJ) $(libft)
+$(NAME): $(OBJ) $(libft) cub3d.h
 	$(CC) $(CFLAGS) $(OBJ) $(libft) $(ARGS) $(MLX42) -o $(NAME) 
-#-framework Cocoa -framework OpenGL -framework IOKit
-%.o: %.c
+
+%.o: %.c 
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

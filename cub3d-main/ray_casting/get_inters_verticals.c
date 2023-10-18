@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:36:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/07 18:58:04 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/16 22:24:06 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ t_ray   get_inters_vertical(t_all *data, float angle)
     float       x_step;
     float       y_step;
     t_point     p_check;
+    
+
+    ray.is_facing_down = (angle > 0 && angle < 180);
+	ray.is_facing_up = !ray.is_facing_down;
+	ray.is_facing_right = (angle < 90 || angle > 270);
+	ray.is_facing_left = !ray.is_facing_right;
+
     
     p_intercept_v.x = floor((double)data->game->position.x / SQUARE_SIZE) * SQUARE_SIZE;
     if (angle < 90 || angle > 270)
@@ -52,6 +59,7 @@ t_ray   get_inters_vertical(t_all *data, float angle)
         ray.wall_hit_x = p_intercept_v.x;
         ray.wall_hit_y = p_intercept_v.y;
         ray.distance = distace_two_points(data->game->position, p_intercept_v);
+        ray.is_horz = 0;
         
     // }
     return (ray);

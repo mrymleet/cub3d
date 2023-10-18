@@ -15,52 +15,6 @@
 // 	return (0);
 // }
 
-
-
-
-// int	ft_get_height(char **s)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-// int	ft_get_width(char **s)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while (s[0][i])
-// 	{
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-// void	free_2_dimensions(char **str)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		free(str[i]);
-// 		i++;
-// 	}
-// 	free(str);
-// }
-
-// int close_window(void *param) {
-// 	(void)param;
-//     exit(0);
-//     return 0;
-// }
-
 void	close_window(void* param)
 {
 	t_all *all;
@@ -73,9 +27,15 @@ void	close_window(void* param)
 	}
 }
 
+// void	mouse_hook(void* param)
+// {
+// 	t_all *all;
+	
+// 	all = param;
+// 	if (mlx_is_mouse_down(all->game->mlx, MLe)
+// }
 
-
-int main(int ac, char **av)
+int main(int ac, __unused char **av)
 {
 	t_all all;
 
@@ -89,16 +49,26 @@ int main(int ac, char **av)
 	// 	return (1);
 	// }
 	// free_2_dimensions(all.map);
-	all.i = 1;
+	// all.i = 1;
 	all.map = read_map_1(&all, av[1]);
+
+	// }
 	
 	create_window_and_images(&all);
+    all.textures[0] = mlx_load_png("./textures/image.png");
+	all.textures[1] = mlx_load_png("./textures/image.png");
+	all.textures[2] = mlx_load_png("./textures/image.png");
+	all.textures[3] = mlx_load_png("./textures/image.png");
+	// printf("-->%d\n", all.game->img->width);
 	all.game->position.x = -1;
 	all.game->position.y = -1;
 	all.game->player_ang = 90;
-	// build_window(&all);
+	// build_window(&all)
+	// load_texture(&all);;
 	mlx_loop_hook(all.game->mlx, close_window, &all);
 	mlx_loop_hook(all.game->mlx, moving_hook, &all);
+	// mlx_mouse_hook(all.game->mlx, mouse_hook, &all);
+	// printf("%s\n", all.game->NO->pixels);
 	mlx_loop(all.game->mlx);
 	mlx_terminate(all.game->mlx);
 	return (EXIT_SUCCESS);

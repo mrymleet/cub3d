@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/09 12:02:51 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:36:28 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ void    draw_block(mlx_image_t *canvas, double point[2], long color)
 		col = -1;
 		while (++col < SQUARE_SIZE)
 		{
-			if (!col || !row)
-			{
-				if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
-					&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
-					mlx_put_pixel(canvas, (location.x + col) / SCALE, (location.y + row) / SCALE, 841372671);
-			}
-			else
-			{
+			// if (!col || !row)
+			// {
+			// 	if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
+			// 		&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
+			// 		mlx_put_pixel(canvas, (location.x + col) / SCALE, (location.y + row) / SCALE, 841372671);
+			// }
+			// else
+			// {
 				if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
 					&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
 					mlx_put_pixel(canvas, (location.x + col) / SCALE, (location.y + row) / SCALE, color);
-			}
+			// }
 		}
 	}
 }
@@ -77,10 +77,13 @@ void    draw_rays(t_all *data)
 	while (++i < WIDTH)
 	{
 		ray = ray_cast(data, var_ang);
-		// printf("distance = %f\n", ray.distance);
+		ray.distance = ray.distance
+			* cos((var_ang - data->game->player_ang) * (M_PI / 180));
 		draw_ray(data, data->game->position, ray);
+		// if (((int)var_ang % 90) == 0)
+			// printf("ang ->%f distance = %f\n", var_ang, ray.distance);
+		build_wall(data, ray, i);
 		
-		build_wall(data, ray, i, var_ang);
 		var_ang += ang_step;
 		var_ang = bound_angle(var_ang);
 	}
@@ -88,8 +91,7 @@ void    draw_rays(t_all *data)
 
 float	distace_two_points(t_point src, t_point dst)
 {
-	return (sqrt(pow((src.x - dst.x), 2)
-	+ pow((src.y - dst.y), 2)));
+	return (sqrt(pow((dst.x - src.x), 2) + pow((dst.y - src.y), 2)));
 }
 
 

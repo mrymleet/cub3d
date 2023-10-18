@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:04 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/09 11:52:55 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/16 15:48:16 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,20 @@ void    clear_window(t_all *all)
 		}
 	}
 }	
-void clear(t_all *all){
-	int y = 0;
-	while (y++ < HEIGHT){
-		int x = 0;
+void clear(t_all *all)
+{
+	int		y;
+	int		x;
+	
+	y = 0;
+	while (y++ < HEIGHT)
+	{
+		x = 0;
 		while (x++ < WIDTH)
 			mlx_put_pixel(all->game->img_3d, x, y, 0xff00000);
 	}
 }
+
 void	moving_hook(void *param)
 {
 	t_all *all;
@@ -93,6 +99,10 @@ void	moving_hook(void *param)
 	{
 		all->game->player_ang =  bound_angle(all->game->player_ang - 3);
 	}
+	// if (mlx_is_key_down(all->game->mlx, MLX_MOUS))
+	// {
+	// 	all->game->player_ang =  bound_angle(all->game->player_ang - 3);
+	// }
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_RIGHT))
 	{
 		all->game->player_ang =  bound_angle(all->game->player_ang + 3);
