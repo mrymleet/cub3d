@@ -55,20 +55,16 @@ int main(int ac, __unused char **av)
 	// }
 	
 	create_window_and_images(&all);
-    all.textures[0] = mlx_load_png("./textures/image.png");
-	all.textures[1] = mlx_load_png("./textures/m.png");
-	all.textures[2] = mlx_load_png("./textures/image.png");
-	all.textures[3] = mlx_load_png("./textures/m.png");
-	// printf("-->%d\n", all.game->img->width);
+    all.textures[0] = mlx_load_png("./textures/north.png");
+	all.textures[1] = mlx_load_png("./textures/south.png");
+	all.textures[2] = mlx_load_png("./textures/est.png");
+	all.textures[3] = mlx_load_png("./textures/west.png");
 	all.game->position.x = -1;
 	all.game->position.y = -1;
 	all.game->player_ang = 90;
-	// build_window(&all)
-	// load_texture(&all);;
+
 	mlx_loop_hook(all.game->mlx, close_window, &all);
 	mlx_loop_hook(all.game->mlx, moving_hook, &all);
-	// mlx_mouse_hook(all.game->mlx, mouse_hook, &all);
-	// printf("%s\n", all.game->NO->pixels);
 	mlx_loop(all.game->mlx);
 	mlx_terminate(all.game->mlx);
 	return (EXIT_SUCCESS);

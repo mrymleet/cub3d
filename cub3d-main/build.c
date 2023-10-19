@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/16 22:19:58 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:16:54 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ void	build_window(t_all *all)
 					all->map[index_y][index_x] = '0';
 				
 				}
-				// draw_block(all->game->img_2d, point, specify_color(all->map[index_y][index_x]));		
 			}
 			index_x++;
 		}
 		index_y++;		
 	}
 	draw_rays(all);
-	// draw_play(all, 0xFF0000FF);
 }
 

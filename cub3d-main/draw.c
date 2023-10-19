@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/18 17:33:48 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:18:09 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,9 @@ void    draw_block(mlx_image_t *canvas, double point[2], long color)
 		col = -1;
 		while (++col < SQUARE_SIZE)
 		{
-			// if (!col || !row)
-			// {
-			// 	if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
-			// 		&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
-			// 		mlx_put_pixel(canvas, (location.x + col) / SCALE, (location.y + row) / SCALE, 841372671);
-			// }
-			// else
-			// {
-				if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
-					&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
-					mlx_put_pixel(canvas, (location.x + col) / SCALE, (location.y + row) / SCALE, color);
-			// }
+			if ((location.x + col) / SCALE > 0 && (location.x + col) / SCALE < WIDTH
+				&& (location.y + row) / SCALE > 0 && (location.y + row) / SCALE < HEIGHT)
+				mlx_put_pixel(canvas, (location.x + col) / SCALE, (location.y + row) / SCALE, color);
 		}
 	}
 }

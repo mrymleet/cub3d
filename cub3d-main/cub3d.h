@@ -23,6 +23,12 @@ typedef struct s_point
 	float y;
 } t_point;
 
+typedef struct s_double_point
+{
+	t_point my_image;
+	t_point texture;
+} t_d_point;
+
 typedef struct s_int_point
 {
 	int x;
@@ -148,6 +154,10 @@ t_ray   get_inters_vertical(t_all *data, float angle);
 t_ray   get_inters_horizontals(t_all *data, float angle);
 void    build_wall(t_all *data, t_ray ray, int i);
 void	draw_columns(t_all *data, t_point p, float height, t_ray ray);
-void	draw_text(t_all *data, t_point img, t_point ttex, float h, mlx_texture_t *tex);
-// void    load_texture(t_all *data);
+void	draw_text(t_all *data, t_d_point d_point, float h, mlx_texture_t *tex);
+void    get_wall_inters_v(t_all *data, t_point *p_intercept_v, float angle);
+void    get_wall_inters_h(t_all *data, t_point *p_intercept_h, float angle);
+void	increment(t_point *src, t_point d, float step);
+uint8_t	*get_px_index(mlx_texture_t *tex, t_d_point d_point, t_int_point p1);
+uint8_t	*get_pi_index(t_all *data, mlx_texture_t *tex, t_int_point p2);
 #endif

@@ -1,7 +1,7 @@
 NAME=cub3d
 CC=cc
 libft=libft/libft.a
-CFLAGS=-Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror #-g -fsanitize=address
 ARGS= -Iinclude -lglfw  -L"/Users/mdenguir/goinfre/homebrew/opt/glfw/lib"
 MLX42 = /Users/mdenguir/MLX42/build/libmlx42.a
 SRC= main.c\
