@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/18 22:28:41 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:12:43 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,6 @@ t_ray	ray_cast(t_all *data, float angle)
 		return (horz_ray);
 }
 
-int	count_rows(char **str)
-{
-	int		count;
-
-	count = 0;
-	while (str[count])
-		count++;
-	return (count);
-}
-
-int	count_cols(char *str)
-{
-	int		count;
-
-	count = 0;
-	while (str && str[count])
-		count++;
-	return (count);
-}
-
 void	draw_ray(t_all *data, t_point src, t_ray ray)
 {
 	float		step;
@@ -60,18 +40,31 @@ void	draw_ray(t_all *data, t_point src, t_ray ray)
 	while (++i < step)
 	{
 		if ((src.x / SCALE >= 0 && src.x / SCALE < data->game->img_2d->width)
-			&& (src.y / SCALE >= 0 && src.y / SCALE < data->game->img_2d->height))
-			{
-				if (data->map[(int)(src.y + 1) / SQUARE_SIZE][(int)(src.x) / SQUARE_SIZE] == '1'
-				|| data->map[(int)src.y / SQUARE_SIZE][(int)(src.x + 1) / SQUARE_SIZE] == '1'
-				|| data->map[(int)(src.y - 1) / SQUARE_SIZE][(int)(src.x) / SQUARE_SIZE] == '1'
-				|| data->map[(int)src.y / SQUARE_SIZE][(int)(src.x - 1) / SQUARE_SIZE] == '1')
-					break;
-				mlx_put_pixel(data->game->img_2d, src.x / SCALE,
-					src.y / SCALE, 0xFF0000FF);
-			}
+			&& (src.y / SCALE >= 0
+				&& src.y / SCALE < data->game->img_2d->height))
+		{
+			if (wall_detected(data, src))
+				break ;
+			mlx_put_pixel(data->game->img_2d, src.x / SCALE,
+				src.y / SCALE, 0xFF0000FF);
+		}
 		increment(&src, d, step);
 	}
+}
+
+int	wall_detected(t_all *data, t_point src)
+{
+	if (data->map[(int)(src.y + 1) / SQUARE_SIZE]
+	[(int)(src.x) / SQUARE_SIZE] == '1'
+		|| data->map[(int)src.y / SQUARE_SIZE]
+		[(int)(src.x + 1) / SQUARE_SIZE] == '1'
+		|| data->map[(int)(src.y - 1) / SQUARE_SIZE]
+		[(int)(src.x) / SQUARE_SIZE] == '1'
+		|| data->map[(int)src.y / SQUARE_SIZE]
+		[(int)(src.x - 1) / SQUARE_SIZE] == '1')
+		return (1);
+	else
+		return (0);
 }
 
 void	increment(t_point *src, t_point d, float step)

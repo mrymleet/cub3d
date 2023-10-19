@@ -14,6 +14,7 @@ parsing/split_again.c\
 build.c draw.c move.c \
 ray_casting/ray_cast.c ray_casting/get_inters_horizontals.c ray_casting/get_inters_verticals.c\
 build_3d.c \
+clearing.c utils.c \
 
 OBJ=$(SRC:.c=.o)
 

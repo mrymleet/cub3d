@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
+/*   Updated: 2023/10/19 11:15:15 by mdenguir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 // int is_map_valid(t_all *all)
@@ -15,17 +27,7 @@
 // 	return (0);
 // }
 
-void	close_window(void* param)
-{
-	t_all *all;
-	
-	all = param;
-	if (mlx_is_key_down(all->game->mlx, MLX_KEY_ESCAPE))
-	{
-		printf("The window has been closed manually!\n");
-		mlx_close_window(all->game->mlx);
-	}
-}
+
 
 // void	mouse_hook(void* param)
 // {

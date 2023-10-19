@@ -140,13 +140,19 @@ void    draw_play(t_all *all, long color);
 long    specify_color(char c);
 void	close_window(void* param);
 void    clear_window(t_all *all);
+void	clear(t_all *all);
 void	moving_hook(void *param);
+void	move_up(t_all *all);
+void	move_down(t_all *all);
+void	move_right(t_all *all);
+void	move_left(t_all *all);
+
 float	bound_angle(float angle);
 void    draw_ray(t_all *data, t_point src, t_ray ray);
 void    draw_rays(t_all *data);
 
 float	distace_two_points(t_point src, t_point dst);
-int		point_reach_wall(t_all *all, t_point p);
+int	wall_detected(t_all *data, t_point src);
 int count_rows(char **str);
 int count_cols(char *str);
 t_ray    ray_cast(t_all *data, float angle);
@@ -160,4 +166,5 @@ void    get_wall_inters_h(t_all *data, t_point *p_intercept_h, float angle);
 void	increment(t_point *src, t_point d, float step);
 uint8_t	*get_px_index(mlx_texture_t *tex, t_d_point d_point, t_int_point p1);
 uint8_t	*get_pi_index(t_all *data, mlx_texture_t *tex, t_int_point p2);
+
 #endif
