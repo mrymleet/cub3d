@@ -6,11 +6,11 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:52:37 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 11:13:47 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:10:57 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	clear_window(t_all *all)
 {
@@ -28,6 +28,11 @@ void	clear_window(t_all *all)
 	}
 }
 
+int32_t	get_rgb_color(int32_t r, int32_t g, int32_t b, int32_t a)
+{
+	return (r << 24 | g << 16 | b << 8 | a);
+}
+
 void	clear(t_all *all)
 {
 	int		y;
@@ -38,7 +43,12 @@ void	clear(t_all *all)
 	{
 		x = 0;
 		while (x++ < WIDTH)
-			mlx_put_pixel(all->game->img_3d, x, y, 0xff00000);
+        {
+            if (y < HEIGHT /2)
+			    mlx_put_pixel(all->game->img_3d, x, y, get_rgb_color(0, 255, 255, 255));
+            else
+                mlx_put_pixel(all->game->img_3d, x, y, get_rgb_color(192, 192, 192, 255));
+        }
 	}
 }
 

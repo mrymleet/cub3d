@@ -6,11 +6,11 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:41:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/18 22:23:57 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:10:41 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 t_ray	get_inters_horizontals(t_all *data, float angle)
 {

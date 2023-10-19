@@ -11,10 +11,10 @@ parsing/read_map.c parsing/read_map_1.c\
 parsing/path.c\
 parsing/map.c\
 parsing/split_again.c\
-build.c draw.c move.c \
-ray_casting/ray_cast.c ray_casting/get_inters_horizontals.c ray_casting/get_inters_verticals.c\
-build_3d.c \
-clearing.c utils.c \
+game/build.c game/draw.c game/move.c \
+game/ray_casting/ray_cast.c game/ray_casting/get_inters_horizontals.c game/ray_casting/get_inters_verticals.c\
+game/build_3d.c \
+game/clearing.c game/utils.c \
 
 OBJ=$(SRC:.c=.o)
 

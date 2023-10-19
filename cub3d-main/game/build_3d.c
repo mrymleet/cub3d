@@ -6,11 +6,11 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:38:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 10:16:36 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:10:53 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 void	build_wall(t_all *data, t_ray ray, int i)
 {

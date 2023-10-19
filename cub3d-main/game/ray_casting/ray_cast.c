@@ -6,11 +6,11 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 11:12:43 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:10:47 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "../../cub3d.h"
 
 t_ray	ray_cast(t_all *data, float angle)
 {

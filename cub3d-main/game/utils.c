@@ -6,11 +6,11 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:53:31 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 11:14:17 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:10:49 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../cub3d.h"
 
 float	bound_angle(float angle)
 {
