@@ -1,5 +1,5 @@
-NO  test.xpm
-SO  test.xpm
+NO  test.png
+SO  test.png
 
 
 
@@ -7,9 +7,9 @@ SO  test.xpm
 
 
 C 225,30,122
-WE test.xpm
+WE test.png
 
-EA test.xpm
+EA test.png
 
 F 220,    255 ,0
 

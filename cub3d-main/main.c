@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/20 18:56:23 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/22 10:19:56 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,22 @@ int main(int ac, __unused char **av)
 	if (ac != 2)
 		return (1);
 	
-	// read_map(av[1], &all);
-	// if (is_map_valid(&all))
-	// {
-	// 	printf("Error\n");
-	// 	return (1);
-	// }
+	read_map(av[1], &all);
+	if (is_map_valid(&all))
+	{
+		printf("Error\n");
+		return (1);
+	}
 	// free_2_dimensions(all.map);
 	// all.i = 1;
 	all.map = read_map_1(&all, av[1]);
 
-	// }
+	// // }
 	
 	create_window_and_images(&all);
-	if (access("./textures/norh.png", F_OK))
-		printf("picture doesnt exist\n");
-		exit(0);
+	// if (access("./textures/norh.png", F_OK))
+	// 	printf("picture doesnt exist\n");
+	// 	exit(0);
 
     all.textures[0] = mlx_load_png("./textures/north.png");
 	// if (all.textures[0] == NULL)

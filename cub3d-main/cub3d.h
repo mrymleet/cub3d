@@ -5,9 +5,10 @@
 # include <math.h>
 #include "libft/libft.h"
 #include "get_next_line/get_next_line.h"
-#include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
+#include "/Users/mel-moun/MLX42/include/MLX42/MLX42.h"
 #include <string.h> // ................to remove
 #include <stdio.h>
+# include <unistd.h>
 // #include <unistd.h>
 #define WIDTH 1200
 #define HEIGHT 600
@@ -64,68 +65,146 @@ typedef struct s_game{
 }	t_game;
 
 	
-
 typedef struct s_all
 {
-	char    **map;
-	char    *line;
-	char     **tmp;
-	char       *str;
+	char	**map;
+	char	*line;
+	char	**tmp;
+	char	**cc;
+	char	**cc1;
+	char	*str;
+	int		f;
+	int		c;
+	int		no;
+	int		so;
+	int		ea;
+	int		we;
+	int		wid;
+	int		count;
+	int		i;
+	int		j;
+	char	**final;
+	char	**pics;
+	char	player;
+	int		floor[3];
+	int		ciel[3];
 	mlx_texture_t	*textures[4];
+	t_game  *game;	
+}	t_all;
 
-	int F;//wall
-	int C;//space
+// typedef struct s_all
+// {
+// 	char    **map;
+// 	char    *line;
+// 	char     **tmp;
+// 	char       *str;
 
-	int NO;
-	int SO;
-	int EA;
-	int WE;
+// 	int F;//wall
+// 	int C;//space
 
-	int wid;
-	int count;
+// 	int NO;
+// 	int SO;
+// 	int EA;
+// 	int WE;
 
-	int i;
-	int j;
+// 	int wid;
+// 	int count;
 
-	int height;
-	int width;
-	t_game  *game;
-} t_all;
+// 	int i;
+// 	int j;
+
+// 	int height;
+// 	int width;
+// 	mlx_texture_t	*textures[4];
+// 	t_game  *game;
+// } t_all;
+
+//---------PARSING-----------------------
+
+//reading map + to check its validity
+void	read_map(char *str, t_all *all);
+int		is_map_valid(t_all *all);
+void	map_error(int err, t_all *all);
+
+//check for 6 first characters
+int		all_characters_exits(t_all *all);
+int		names_correct(t_all *all);
+int		check_path(t_all *all);
+int		path(char *s);
+int		colors(t_all *all);
+int		count_virgules(char *str);
+int		check_numbers(t_all *all, char *str);
+
+//check validity of the map
+int		identify_the_start(t_all *all);
+int		check_map_characters(t_all *all);
+int		count_chars(t_all *all);
+int		check_newlines(t_all *all);
+int		surronded(t_all *all);
+int		up_down(t_all *all, int i);
+int		right_left(t_all *all, int i);
+int		check_empty(t_all *all);
+int		empty(t_all *all, char c);
+int		last_line(t_all *all);
+
+//what raycaster needs
+void	parsing(t_all *all);
+void	store_player(t_all *all);
+void	store_colors(t_all *all);
+void	store_map(t_all *all);
+void	exact_color(t_all *all, char *tmp);
+void	store_colors_again(int i, char *tmp, t_all *all);
+void	store_pictures(t_all *all);
+
+//free stuffs
+void	free_tmp(t_all *all);
+void	free_map(t_all *all);
+void	free_all_ccs(t_all *all);
+void	free_pics(t_all *all);
+
+//some string's manipulation
+char	**split_two(char *s);
+int		only_num(char *str);
+int		check_num(char *tmp);
+int		string_empty(char *str);
+int		string_empty_one(char *str);
+void	initialize_vars(t_all *all);
+//-------------------------------------
 
 //parsing
-void    read_map(char *str, t_all *all);
-int     all_characters_exits(t_all *all);
-int names_correct(t_all *all);
+// void    read_map(char *str, t_all *all);
+// int     all_characters_exits(t_all *all);
+// int names_correct(t_all *all);
 
-// int count_characters(t_all *all);
-int check_path(t_all *all);
-int check_numbers(t_all *all, char *str);//check characters
-int only_num(char *str);
-int count_virgules(char *str);
+// // int count_characters(t_all *all);
+// int check_path(t_all *all);
+// int check_numbers(t_all *all, char *str);//check characters
+// int only_num(char *str);
+// int count_virgules(char *str);
 
-void    free_tmp(t_all *all);
-int colors(t_all *all);
-int check_map_characters(t_all *all);
-int check_newlines(t_all *all);
-int check_empty(t_all *all);
-int check_empty_player(t_all *all);
+// void    free_tmp(t_all *all);
+// int colors(t_all *all);
+// int check_map_characters(t_all *all);
+// int check_newlines(t_all *all);
+// int check_empty(t_all *all);
+// int check_empty_player(t_all *all);
 
-// int is_space_or_tab(char c);
-int identify_the_start(t_all *all);
-char	**split_two(char *s);
-int	surronded(t_all *all);
+// // int is_space_or_tab(char c);
+// int identify_the_start(t_all *all);
+// char	**split_two(char *s);
+// int	surronded(t_all *all);
 
-int string_empty(char *str);
-int string_empty_one(char *str);
-int identify_the_end(t_all *all);
-void initialize_vars(t_all *all);
-int path(t_all *all);
-// int doesnt_belong(t_all *all);
-int count_chars(t_all *all);
-int empty(t_all *all, char c);
-int up_down(t_all *all, int i); //check for the last one
-int right_left(t_all *all, int i);
-void    map_error(int err);
+// int string_empty(char *str);
+// int string_empty_one(char *str);
+// int identify_the_end(t_all *all);
+// void initialize_vars(t_all *all);
+// // int path(t_all *all);
+// // int doesnt_belong(t_all *all);
+// int count_chars(t_all *all);
+// int empty(t_all *all, char c);
+// int up_down(t_all *all, int i); //check for the last one
+// int right_left(t_all *all, int i);
+// void    map_error(int err);
 //----
 char	**read_map_1(t_all *all, char *path);
 int     is_line_empty(char *line);
