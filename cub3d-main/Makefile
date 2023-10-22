@@ -1,7 +1,7 @@
 NAME=cub3d
 CC=cc
 libft=libft/libft.a
-CFLAGS=-Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS=-Wall -Wextra -Werror -g -fsanitize=address
 ARGS= -Iinclude -lglfw  -L"/Users/mdenguir/goinfre/homebrew/opt/glfw/lib"
 MLX42 = /Users/mdenguir/MLX42/build/libmlx42.a
 SRC= main.c\
@@ -27,7 +27,7 @@ $(NAME): $(OBJ) $(libft) cub3d.h
 	$(CC) $(CFLAGS) $(OBJ) $(libft) $(ARGS) $(MLX42) -o $(NAME) 
 
 %.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -o $@ -c $^
 
 clean:
 	make -C libft clean

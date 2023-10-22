@@ -59,6 +59,8 @@ typedef struct s_game{
 	t_point    position;
 	float		player_ang;
 	t_ray		ray;
+	int32_t		mouse_x;
+	int32_t		mouse_y;
 }	t_game;
 
 	
