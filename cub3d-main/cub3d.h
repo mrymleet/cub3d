@@ -83,11 +83,13 @@ typedef struct s_all
 	int		count;
 	int		i;
 	int		j;
-	char	**final;
+	//raycatsing
+	char	**final; //map
 	char	**pics;
 	char	player;
 	int		floor[3];
 	int		ciel[3];
+	//////////
 	mlx_texture_t	*textures[4];
 	t_game  *game;	
 }	t_all;
