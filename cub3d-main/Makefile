@@ -1,49 +1,58 @@
-# NAME=cub3d
-# CC=cc
 libft=libft/libft.a
-# CFLAGS=-Wall -Wextra -Werror -g -fsanitize=address
-#ARGS= -I $(MLX42)/include $(MLX42)/build/libmlx42.a -ldl -lglfw -pthread -lm
-# MLX42 = /Users/$(USER)/MLX42
 
 NAME	= cub3D
 
 CC		:= cc
-FLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 #-fsanitize=address -g
+FLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 -fsanitize=address -g
 LIBMLX	:= /Users/$(USER)/MLX42
 LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/mdenguir/goinfre/homebrew/opt/glfw/lib" -pthread -lm
-#-ldl -lglfw -L"/Users/mdenguir/goinfre/homebrew/opt/glfw/lib" -pthread -lm
 
 INCLUDES = -I $(LIBMLX)/include
 
 
-SRC= main.c\
+SRC= mandatory/cub3d.c\
 get_next_line/get_next_line.c\
-parsing/check_map/characters.c parsing/check_map/empty_zero_one.c parsing/check_map/newlines.c parsing/check_map/surronded.c\
-parsing/final_parse/store_colors.c parsing/final_parse/store_map.c parsing/final_parse/store_pictures.c parsing/final_parse/store_player.c parsing/final_parse/to_raycasting.c\
-parsing/six_characters/colors.c parsing/six_characters/existance.c parsing/six_characters/path.c\
-parsing/others/free.c parsing/others/read_map.c parsing/others/split.c parsing/others/string.c\
-game/build.c game/draw.c game/move.c game/init_data.c\
-game/ray_casting/ray_cast.c game/ray_casting/get_inters_horizontals.c game/ray_casting/get_inters_verticals.c\
-game/build_3d.c \
-game/clearing.c game/utils.c \
-parsing/read_map_1.c\
+mandatory/parsing/check_map/characters.c mandatory/parsing/check_map/empty_zero_one.c mandatory/parsing/check_map/newlines.c mandatory/parsing/check_map/surronded.c\
+mandatory/parsing/final_parse/store_colors.c mandatory/parsing/final_parse/store_map.c mandatory/parsing/final_parse/store_pictures.c mandatory/parsing/final_parse/store_player.c mandatory/parsing/final_parse/to_raycasting.c\
+mandatory/parsing/six_characters/colors.c mandatory/parsing/six_characters/existance.c mandatory/parsing/six_characters/path.c\
+mandatory/parsing/others/free.c mandatory/parsing/others/read_map.c mandatory/parsing/others/split.c mandatory/parsing/others/string.c\
+mandatory/game/build.c mandatory/game/draw.c mandatory/game/move.c mandatory/game/init_data.c\
+mandatory/game/ray_casting/ray_cast.c mandatory/game/ray_casting/get_inters_horizontals.c mandatory/game/ray_casting/get_inters_verticals.c\
+mandatory/game/build_3d.c \
+mandatory/game/clearing.c mandatory/game/utils.c \
+
+SRC_BONUS = bonus/cub3d_bonus.c \
+get_next_line/get_next_line.c\
+bonus/parsing/check_map/characters.c bonus/parsing/check_map/empty_zero_one.c bonus/parsing/check_map/newlines.c bonus/parsing/check_map/surronded.c\
+bonus/parsing/final_parse/store_colors.c bonus/parsing/final_parse/store_map.c bonus/parsing/final_parse/store_pictures.c bonus/parsing/final_parse/store_player.c bonus/parsing/final_parse/to_raycasting.c\
+bonus/parsing/six_characters/colors.c bonus/parsing/six_characters/existance.c bonus/parsing/six_characters/path.c\
+bonus/parsing/others/free.c bonus/parsing/others/read_map.c bonus/parsing/others/split.c bonus/parsing/others/string.c\
+bonus/game/build_bonus.c bonus/game/draw_bonus.c bonus/game/move_bonus.c bonus/game/init_data_bonus.c\
+bonus/game/ray_casting_bonus/ray_cast.c bonus/game/ray_casting_bonus/get_inters_horizontals.c bonus/game/ray_casting_bonus/get_inters_verticals.c\
+bonus/game/build_3d_bonus.c \
+bonus/game/clearing_bonus.c bonus/game/utils_bonus.c  bonus/game/mouse_hook.c\
 
 OBJ=$(SRC:.c=.o)
 
+OBJ_BONUS=$(SRC_BONUS:.c=.o)
+
 all: $(NAME)
+
+bonus : ${OBJ_BONUS} $(libft)
+	${CC} ${FLAGS} ${OBJ_BONUS} $(INCLUDES) $(libft) $(LIBS) -o $(NAME)
 
 $(libft):
 	make -C libft
 
 $(NAME): $(OBJ) $(libft)
 	$(CC) $(FLAGS) $(INCLUDES) $(libft) $(OBJ) $(LIBS) -o $(NAME)
-#-framework Cocoa -framework OpenGL -framework IOKit
+
 %.o: %.c
 	$(CC) $(FLAGS) -c $(INCLUDES) $< -o $@
 
 clean:
 	make -C libft clean
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) ${OBJ_BONUS}
 
 
 fclean: clean

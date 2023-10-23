@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 10:37:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/20 10:41:26 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 13:17:47 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	moving_hook(void *param)
 {
 	t_all		*all;
 	t_point		des;
-	int32_t		tmp_mouse;	
 
 	all = param;
 	des.x = cos(all->game->player_ang * (M_PI / 180));
@@ -30,20 +29,11 @@ void	moving_hook(void *param)
 		move_down(all);
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_A))
 		move_left(all);
-	tmp_mouse = all->game->mouse_x;
-	mlx_get_mouse_pos(all->game->mlx, &all->game->mouse_x, &all->game->mouse_y);
-	if (mlx_is_key_down(all->game->mlx, MLX_KEY_LEFT) || tmp_mouse > all->game->mouse_x)
-	{
-		if (all->game->mouse_x < WIDTH && all->game->mouse_x >= 0
-			&& all->game->mouse_y < WIDTH && all->game->mouse_y >= 0)
-			all->game->player_ang = bound_angle(all->game->player_ang - 3);
-	}
-	if (mlx_is_key_down(all->game->mlx, MLX_KEY_RIGHT) || tmp_mouse < all->game->mouse_x)
-	{
-		if (all->game->mouse_x < WIDTH && all->game->mouse_x >= 0
-			&& all->game->mouse_y < HEIGHT && all->game->mouse_y >= 0)
-			all->game->player_ang = bound_angle(all->game->player_ang + 3);
-	}
+	mouse_hook(all);
+	if (mlx_is_key_down(all->game->mlx, MLX_KEY_LEFT))
+		all->game->player_ang = bound_angle(all->game->player_ang - 3);
+	if (mlx_is_key_down(all->game->mlx, MLX_KEY_RIGHT))
+		all->game->player_ang = bound_angle(all->game->player_ang + 3);
 	build_window(all);
 }
 

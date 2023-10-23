@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 12:14:03 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 13:16:45 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <fcntl.h>
 # include <math.h>
-# include "libft/libft.h"
-# include "get_next_line/get_next_line.h"
+# include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
 # include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
@@ -182,5 +182,5 @@ uint8_t	*get_pi_index(t_all *data, mlx_texture_t *tex, t_int_point p2);
 void	init_data(t_all *all);
 void	load_textures(t_all *all);
 void	draw_square(t_all *all, int x, int y);
-
+void	mouse_hook(t_all *all);
 #endif
