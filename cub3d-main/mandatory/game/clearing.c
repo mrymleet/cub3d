@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:52:37 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 11:55:23 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:38:16 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	close_window(void *param)
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_ESCAPE))
 	{
 		printf("The window has been closed manually!\n");
+		free_map(all);
 		mlx_close_window(all->game->mlx);
 	}
 }

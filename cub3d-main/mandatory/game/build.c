@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 12:05:19 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 15:40:59 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	create_window_and_images(t_all *all)
 	all->game->img_2d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
 	all->game->img_3d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
 	mlx_image_to_window(all->game->mlx, all->game->img_3d, 0, 0);
-	mlx_image_to_window(all->game->mlx, all->game->img_2d, 0, 0);
 }
 
 void	build_window(t_all *all)
