@@ -2,15 +2,16 @@
 # CC=cc
 libft=libft/libft.a
 # CFLAGS=-Wall -Wextra -Werror -g -fsanitize=address
-# ARGS= -I $(MLX42)/include $(MLX42)/build/libmlx42.a -ldl -lglfw -pthread -lm
+#ARGS= -I $(MLX42)/include $(MLX42)/build/libmlx42.a -ldl -lglfw -pthread -lm
 # MLX42 = /Users/$(USER)/MLX42
 
 NAME	= cub3D
 
 CC		:= cc
-FLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast #-fsanitize=address -g
+FLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 #-fsanitize=address -g
 LIBMLX	:= /Users/$(USER)/MLX42
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/mdenguir/goinfre/homebrew/opt/glfw/lib" -pthread -lm
+#-ldl -lglfw -L"/Users/mdenguir/goinfre/homebrew/opt/glfw/lib" -pthread -lm
 
 INCLUDES = -I $(LIBMLX)/include
 
@@ -21,7 +22,7 @@ parsing/check_map/characters.c parsing/check_map/empty_zero_one.c parsing/check_
 parsing/final_parse/store_colors.c parsing/final_parse/store_map.c parsing/final_parse/store_pictures.c parsing/final_parse/store_player.c parsing/final_parse/to_raycasting.c\
 parsing/six_characters/colors.c parsing/six_characters/existance.c parsing/six_characters/path.c\
 parsing/others/free.c parsing/others/read_map.c parsing/others/split.c parsing/others/string.c\
-game/build.c game/draw.c game/move.c \
+game/build.c game/draw.c game/move.c game/init_data.c\
 game/ray_casting/ray_cast.c game/ray_casting/get_inters_horizontals.c game/ray_casting/get_inters_verticals.c\
 game/build_3d.c \
 game/clearing.c game/utils.c \

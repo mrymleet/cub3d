@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 13:10:31 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 12:05:19 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,39 @@ void	create_window_and_images(t_all *all)
 
 void	build_window(t_all *all)
 {
-	int     index_x;
-	int     index_y;
-	uint32_t		i;
-	double point[2];
-	i = 0;
-	index_y = 0;
+	int			x;
+	int			y;
 
-	while (all->map[index_y])
+	y = -1;
+	while (all->map[++y])
 	{
-		index_x = 0;
-		while (all->map[index_y][index_x] && all->map[index_y][index_x] !='\n')
+		x = 0;
+		while (all->map[y][x] && all->map[y][x] != '\n')
 		{
-			if (all->map[index_y][index_x] == '0' || all->map[index_y][index_x] == '1'
-			|| all->map[index_y][index_x] == ' ' )
-			{
-				point[0] = index_x * SQUARE_SIZE;
-				point[1] = index_y * SQUARE_SIZE;
-				draw_block(all->game->img_2d, point, specify_color(all->map[index_y][index_x]));		
-			}
+			if (all->map[y][x] == '0' || all->map[y][x] == '1'
+			|| all->map[y][x] == ' ' )
+				draw_square(all, x, y);
 			else
 			{
 				if (all->game->position.y == -1 || all->game->position.x == -1)
 				{
-					point[0] = index_y * SQUARE_SIZE;
-					point[1] = index_x * SQUARE_SIZE;
-					all->game->position.x = index_x * SQUARE_SIZE;
-					all->game->position.y = index_y * SQUARE_SIZE;
-					all->map[index_y][index_x] = '0';
-				
+					all->game->position.x = x * SQUARE_SIZE;
+					all->game->position.y = y * SQUARE_SIZE;
+					all->map[y][x] = '0';
 				}
 			}
-			index_x++;
+			x++;
 		}
-		index_y++;		
 	}
 	draw_rays(all);
 }
 
+void	draw_square(t_all *all, int x, int y)
+{
+	double		point[2];
+
+	point[0] = x * SQUARE_SIZE;
+	point[1] = y * SQUARE_SIZE;
+	draw_block(all->game->img_2d, point,
+		specify_color(all->map[y][x]));
+}

@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:41:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 13:10:41 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:53:52 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	get_wall_inters_h(t_all *data, t_point *p_intercept_h, float angle)
 	{
 		p_check.x = floor(p_intercept_h->x / SQUARE_SIZE);
 		p_check.y = floor(p_intercept_h->y / SQUARE_SIZE);
-		if ((p_check.y >= count_rows(data->map)
-				|| p_check.x >= count_cols(data->map[(int)p_check.y]))
-			|| data->map[(int) p_check.y][(int) p_check.x] == '1')
+		if ((p_check.y < count_rows(data->map)
+				&& p_check.x < count_cols(data->map[(int)p_check.y]))
+			&& data->map[(int) p_check.y][(int) p_check.x] == '1')
 			break ;
 		else
 		{

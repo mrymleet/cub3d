@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:52:37 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 13:10:57 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:55:23 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ void	clear(t_all *all)
 	{
 		x = 0;
 		while (x++ < WIDTH)
-        {
-            if (y < HEIGHT /2)
-			    mlx_put_pixel(all->game->img_3d, x, y, get_rgb_color(0, 255, 255, 255));
-            else
-                mlx_put_pixel(all->game->img_3d, x, y, get_rgb_color(192, 192, 192, 255));
-        }
+		{
+			if (y < HEIGHT / 2)
+				mlx_put_pixel(all->game->img_3d, x, y,
+					get_rgb_color(0, 255, 255, 255));
+			else
+				mlx_put_pixel(all->game->img_3d, x, y,
+					get_rgb_color(192, 192, 192, 255));
+		}
 	}
 }
 

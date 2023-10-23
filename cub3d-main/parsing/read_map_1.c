@@ -11,11 +11,6 @@ char	**read_map_1(t_all __unused *all, char *path)
 	i = 0;
 	count = 0;
 	fd = open(path, O_RDONLY);
-	// if (fd < 0)
-	// {
-	// 	ft_printf("ERROR \n The file probably doesnt exist\n");
-	// 	exit(1);
-	// }
 	while ((line = get_next_line(fd)))
 	{
 		if (!is_line_empty(line))
