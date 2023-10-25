@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:36:49 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 16:45:58 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:37:57 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 int	check_newlines(t_all *all)
 {

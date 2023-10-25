@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:43:31 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 17:08:37 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:38:11 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 void	store_player(t_all *all)
 {

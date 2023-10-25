@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:23:42 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 18:43:24 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:38:20 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 void	read_map(char *str, t_all *all)
 {

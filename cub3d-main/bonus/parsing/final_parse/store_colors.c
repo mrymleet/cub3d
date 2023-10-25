@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:44:02 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 13:26:32 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:38:03 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 void	store_colors(t_all *all)
 {

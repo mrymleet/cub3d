@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:57:01 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 17:10:40 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:38:22 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 static int	numwords(char *s)
 {

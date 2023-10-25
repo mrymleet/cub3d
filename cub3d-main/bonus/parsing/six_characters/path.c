@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:31:38 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 17:16:09 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:38:37 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 int	check_path(t_all *all)
 {
