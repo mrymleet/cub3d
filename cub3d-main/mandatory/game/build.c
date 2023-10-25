@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 15:40:59 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:51:06 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	build_window(t_all *all)
 			{
 				if (all->game->position.y == -1 || all->game->position.x == -1)
 				{
-					all->game->position.x = x * SQUARE_SIZE;
-					all->game->position.y = y * SQUARE_SIZE;
+					all->game->position.x = x * SQUARE_SIZE + 25;
+					all->game->position.y = y * SQUARE_SIZE + 25;
 					all->map[y][x] = '0';
 				}
 			}

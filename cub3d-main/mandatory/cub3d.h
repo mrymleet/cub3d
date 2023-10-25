@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 13:05:13 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:37:12 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
+# include "/Users/mel-moun/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
 
@@ -121,16 +121,19 @@ int		up_down(t_all *all, int i);
 int		right_left(t_all *all, int i);
 int		check_empty(t_all *all);
 int		empty(t_all *all, char c);
+void	count_characters(t_all *all);
 int		last_line(t_all *all);
 
 //what raycaster needs
 void	parsing(t_all *all);
 void	store_player(t_all *all);
 void	store_colors(t_all *all);
+int		store_colors_(t_all *all);
 void	store_map(t_all *all);
 void	exact_color(t_all *all, char *tmp);
 void	store_colors_again(int i, char *tmp, t_all *all);
 void	store_pictures(t_all *all);
+void	store_them(t_all *all);
 
 //free stuffs
 void	free_tmp(t_all *all);
@@ -147,7 +150,7 @@ int		string_empty_one(char *str);
 void	initialize_vars(t_all *all);
 //-------------------------------------
 
-int		count_lines(char *path);
+// int		count_lines(char *path);
 void	create_window_and_images(t_all *all);
 void	build_window(t_all *all);
 void	draw_block(mlx_image_t *canvas, double point[2], long color);

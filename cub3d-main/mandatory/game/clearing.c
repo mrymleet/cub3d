@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clearing.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:52:37 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 15:38:16 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:57:25 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,12 @@ void	clear(t_all *all)
 		{
 			if (y < HEIGHT / 2)
 				mlx_put_pixel(all->game->img_3d, x, y,
-					get_rgb_color(0, 255, 255, 255));
+					get_rgb_color(all->ciel[0], all->ciel[1], \
+					all->ciel[2], 255));
 			else
 				mlx_put_pixel(all->game->img_3d, x, y,
-					get_rgb_color(192, 192, 192, 255));
+					get_rgb_color(all->floor[0], all->floor[1], \
+					all->floor[2], 255));
 		}
 	}
 }
