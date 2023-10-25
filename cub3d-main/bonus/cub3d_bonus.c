@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 12:59:47 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:46:23 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	main(int ac, char **av)
 	t_all		all;
 
 	if (ac != 2)
+	{
+		printf("Error\nTwo arguments is requirred\n");
 		return (1);
+	}
 	read_map(av[1], &all);
 	if (is_map_valid(&all))
 	{

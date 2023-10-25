@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/25 16:26:24 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:47:50 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ typedef struct s_all
 //reading map + to check its validity
 void	read_map(char *str, t_all *all);
 int		is_map_valid(t_all *all);
-void	map_error(int err, t_all *all);
+void	map_error(int err);
 
 //check for 6 first characters
 int		all_characters_exits(t_all *all);
@@ -130,7 +130,8 @@ void	store_player(t_all *all);
 void	store_colors(t_all *all);
 int		store_colors_(t_all *all);
 void	store_map(t_all *all);
-void	exact_color(t_all *all, char *tmp);
+int		exact_color(t_all *all, char *tmp);
+void	store_colors_prob(t_all *all);
 void	store_colors_again(int i, char *tmp, t_all *all);
 void	store_pictures(t_all *all);
 void	store_them(t_all *all);
@@ -140,6 +141,7 @@ void	free_tmp(t_all *all);
 void	free_map(t_all *all);
 void	free_all_ccs(t_all *all);
 void	free_pics(t_all *all);
+void	free_line_map(t_all *all);
 
 //some string's manipulation
 char	**split_two(char *s);

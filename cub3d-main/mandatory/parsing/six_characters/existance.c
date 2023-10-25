@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:29:12 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 13:37:24 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:26:19 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	count_characters(t_all *all)
 	char	*test;
 
 	test = ft_strtrim(all->map[all->i], " \t");
+	if (!test)
+	{
+		free_line_map(all);
+		exit(1);
+	}
 	if (!ft_strncmp(test, "NO", 2))
 		all->no++;
 	if (!ft_strncmp(test, "SO", 2))
@@ -47,7 +52,6 @@ void	count_characters(t_all *all)
 	test = NULL;
 }
 
-// check it takes both space and tab,  " \t" sending it haka maYbe
 int	all_characters_exits(t_all *all)
 {
 	char	*test;

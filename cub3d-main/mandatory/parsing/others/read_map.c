@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:23:42 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 18:43:24 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:56:29 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	read_map(char *str, t_all *all)
 
 	all->line = NULL;
 	if (ft_strncmp(str + ft_strlen(str) - 4, ".cub", 4) != 0)
-		map_error(1, all);
+		map_error(1);
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
-		map_error(2, all);
+		map_error(2);
 	tmp = get_next_line(fd);
 	if (!tmp)
-		map_error(3, all);
+		map_error(3);
 	while (tmp)
 	{
 		all->line = ft_strjoin(all->line, tmp);
@@ -34,7 +34,7 @@ void	read_map(char *str, t_all *all)
 	}
 }
 
-void	map_error(int err, t_all *all)
+void	map_error(int err)
 {
 	if (err == 1)
 		printf("Error\nFile's map must be .cub\n");
@@ -42,7 +42,6 @@ void	map_error(int err, t_all *all)
 		printf("Error\nPlease check the permission && existance\n");
 	else
 		printf("Error\nNo map is found\n");
-	free(all->line);
 	exit (1);
 }
 

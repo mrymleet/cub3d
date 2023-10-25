@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:53:40 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 16:54:58 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:26:55 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	store_map(t_all *all)
 	all->final = malloc(sizeof(char *) * (len + 1));
 	if (!all->final)
 	{
-		free_map(all);
-		free(all->line);
+		free_line_map(all);
+		free_pics(all);
 		exit (1);
 	}
 	i = identify_the_start(all);

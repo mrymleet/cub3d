@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:23:42 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:38:20 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:53:08 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	map_error(int err, t_all *all)
 		printf("Error\nPlease check the permission && existance\n");
 	else
 		printf("Error\nNo map is found\n");
-	free(all->line);
 	exit (1);
 }
 

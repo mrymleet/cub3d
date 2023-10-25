@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:32:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:38:30 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 17:47:25 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	check_numbers(t_all *all, char *str)
 	i = 0;
 	all->tmp = ft_split(str, ',');
 	if (!all->tmp)
-		return (1);
+		return (1);//free 
 	while (all->tmp[i])
 	{
 		if (only_num(all->tmp[i]) || check_num(all->tmp[i]))

@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:45:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 12:54:55 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:22:19 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,22 @@ void	store_them(t_all *all)
 	char	*tmp1;
 
 	tmp = ft_strtrim(all->map[all->i], " \t");
+	if (!tmp)
+	{
+		free_line_map(all);
+		free_pics(all);
+		exit (1);
+	}
 	tmp1 = ft_strtrim(tmp + 2, " \t");
+	if (!tmp1)
+	{
+		free(tmp);
+		free_line_map(all);
+		free_pics(all);
+		exit (1);
+	}
 	if (!ft_strncmp(tmp, "NO", 2))
-		all->pics[0] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+		all->pics[0] = ft_substr(tmp1, 0, ft_strlen(tmp1)); //nchof kindir l substr sinon blash
 	else if (!ft_strncmp(tmp, "EA", 2))
 		all->pics[1] = ft_substr(tmp1, 0, ft_strlen(tmp1));
 	else if (!ft_strncmp(tmp, "SO", 2))
@@ -39,8 +52,7 @@ void	store_pictures(t_all *all)
 	all->pics = malloc(sizeof(char *) * 5);
 	if (!all->pics)
 	{
-		free(all->line);
-		free_map(all);
+		free_line_map(all);
 		exit (1);
 	}
 	all->i = 0;

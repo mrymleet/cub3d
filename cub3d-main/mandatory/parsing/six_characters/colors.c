@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:32:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 13:35:14 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:12:37 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	store_colors_(t_all *all)
 	char	c;
 
 	tmp = ft_strtrim(all->map[all->i], " \t");
+	if (!tmp)
+		return (1);
 	if (!ft_strncmp(tmp, "F", 1) || !ft_strncmp(tmp, "C", 1))
 	{
 		c = tmp[0];

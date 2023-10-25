@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:34:44 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 17:36:01 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:16:11 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	check_map_characters(t_all *all)
 	if (!all->map[all->i])
 		return (1);
 	all->str = ft_strnstr(all->line, all->map[all->i], ft_strlen(all->line));
+	if (!all->str)
+		return (1);
 	all->i = 0;
 	if (count_chars(all))
 		return (1);

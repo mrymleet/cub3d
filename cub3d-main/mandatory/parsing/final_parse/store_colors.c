@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:44:02 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 13:26:32 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:48:56 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,18 @@ void	store_colors(t_all *all)
 	while (all->map[all->i] && all->count < 2)
 	{
 		tmp = ft_strtrim(all->map[all->i], " \t");
+		if (!tmp)
+		{
+			free_line_map(all);
+			exit(1);
+		}
 		if (!ft_strncmp(tmp, "F", 1) || !ft_strncmp(tmp, "C", 1))
 		{
-			exact_color(all, tmp);
+			if (exact_color(all, tmp))
+			{
+				free(tmp);
+				exit (1);
+			}
 			all->count++;
 		}
 		free(tmp);
@@ -33,26 +42,25 @@ void	store_colors(t_all *all)
 	}
 }
 
-void	exact_color(t_all *all, char *tmp)
+int	exact_color(t_all *all, char *tmp)
 {
 	all->cc = NULL;
 	all->cc1 = NULL;
 	all->cc = ft_split(&tmp[1], ',');
 	if (!all->cc)
 	{
-		free(all->line);
-		free_map(all);
-		exit(1);
+		free_line_map(all);
+		return (1); 
 	}
 	all->cc1 = malloc(sizeof(char *) * 4);
 	if (!all->cc1)
 	{
-		free_map(all);
-		free(all->line);
+		free_line_map(all);
 		free_all_ccs(all);
-		exit (1);
+		return (1);
 	}
 	store_colors_again(0, tmp, all);
+	return (0);
 }
 
 void	store_colors_again(int i, char *tmp, t_all *all)
@@ -60,6 +68,8 @@ void	store_colors_again(int i, char *tmp, t_all *all)
 	while (i < 3)
 	{
 		all->cc1[i] = ft_strtrim(all->cc[i], " \t");
+		if (!all->cc1[i])
+			store_colors_prob(all);
 		i++;
 	}
 	all->cc1[i] = NULL;
@@ -81,4 +91,11 @@ void	store_colors_again(int i, char *tmp, t_all *all)
 		}
 	}
 	free_all_ccs(all);
+}
+
+void	store_colors_prob(t_all *all)
+{
+	free_line_map(all);
+	free_all_ccs(all);
+	exit (1);
 }
