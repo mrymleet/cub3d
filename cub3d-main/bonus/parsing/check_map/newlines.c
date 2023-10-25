@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   newlines.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:36:49 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:42:55 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/21 16:45:58 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 int	check_newlines(t_all *all)
 {

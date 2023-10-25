@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   surronded.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:37:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:42:58 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/21 16:47:41 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 int	surronded(t_all *all)
 {

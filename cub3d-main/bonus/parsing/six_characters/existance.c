@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   existance.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:29:12 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:43:33 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:37:24 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 void	initialize_vars(t_all *all)
 {
@@ -25,6 +25,28 @@ void	initialize_vars(t_all *all)
 	all->wid = 0;
 }
 
+void	count_characters(t_all *all)
+{
+	char	*test;
+
+	test = ft_strtrim(all->map[all->i], " \t");
+	if (!ft_strncmp(test, "NO", 2))
+		all->no++;
+	if (!ft_strncmp(test, "SO", 2))
+		all->so++;
+	if (!ft_strncmp(test, "EA", 2))
+		all->ea++;
+	if (!ft_strncmp(test, "WE", 2))
+		all->we++;
+	if (!ft_strncmp(test, "F", 1))
+		all->f++;
+	if (!ft_strncmp(test, "C", 1))
+		all->c++;
+	all->count++;
+	free(test);
+	test = NULL;
+}
+
 // check it takes both space and tab,  " \t" sending it haka maYbe
 int	all_characters_exits(t_all *all)
 {
@@ -35,24 +57,7 @@ int	all_characters_exits(t_all *all)
 	while (all->map[all->i] && all->count < 6)
 	{
 		if (!string_empty(all->map[all->i]))
-		{
-			test = ft_strtrim(all->map[all->i], " \t");
-			if (!ft_strncmp(test, "NO", 2))
-				all->no++;
-			if (!ft_strncmp(test, "SO", 2))
-				all->so++;
-			if (!ft_strncmp(test, "EA", 2))
-				all->ea++;
-			if (!ft_strncmp(test, "WE", 2))
-				all->we++;
-			if (!ft_strncmp(test, "F", 1))
-				all->f++;
-			if (!ft_strncmp(test, "C", 1))
-				all->c++;
-			all->count++;
-			free(test);
-			test = NULL;
-		}
+			count_characters(all);
 		all->i++;
 	}
 	if (all->no != 1 || all->so != 1 || all->ea != 1 \

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   to_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:42:45 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:43:13 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:08:50 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 void	parsing(t_all *all)
 {

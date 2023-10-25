@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   store_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:44:02 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:43:01 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:26:32 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 void	store_colors(t_all *all)
 {
@@ -33,12 +33,8 @@ void	store_colors(t_all *all)
 	}
 }
 
-//protect malloc , but mashi leaks here?? protect split
 void	exact_color(t_all *all, char *tmp)
 {
-	int	i;
-
-	i = 0;
 	all->cc = NULL;
 	all->cc1 = NULL;
 	all->cc = ft_split(&tmp[1], ',');
@@ -56,17 +52,18 @@ void	exact_color(t_all *all, char *tmp)
 		free_all_ccs(all);
 		exit (1);
 	}
+	store_colors_again(0, tmp, all);
+}
+
+void	store_colors_again(int i, char *tmp, t_all *all)
+{
 	while (i < 3)
 	{
 		all->cc1[i] = ft_strtrim(all->cc[i], " \t");
 		i++;
 	}
 	all->cc1[i] = NULL;
-	store_colors_again(0, tmp, all);
-}
-
-void	store_colors_again(int i, char *tmp, t_all *all)
-{
+	i = 0;
 	if (tmp[0] == 'F')
 	{
 		while (i < 3)

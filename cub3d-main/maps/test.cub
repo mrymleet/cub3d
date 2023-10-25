@@ -1,15 +1,15 @@
 C 102,   178,   255
-SO      ./textures/south.png
-NO  ./textures/north.png
+SO      ./textures/girl_with_a_pearl_earring.png
+NO  ./textures/monalisa.png
 
 
 
 
 
 
-WE ./textures/west.png
+WE ./textures/starry_nights.png
 
-EA ./textures/est.png
+EA ./textures/the_scream.png
 
 F 153,76,0
 

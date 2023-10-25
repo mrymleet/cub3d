@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 10:20:25 by mel-moun          #+#    #+#             */
-/*   Updated: 2022/10/20 19:17:29 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:31:42 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_atoi(const char *s)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   store_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:53:40 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:43:04 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:54:45 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 void	store_map(t_all *all)
 {
@@ -18,27 +18,20 @@ void	store_map(t_all *all)
 	int	j;
 	int	len;
 
-	i = identify_the_start(all);
+	i = identify_the_start(all) - 1;
 	j = 0;
 	len = 0;
-	while (all->map[i])
-	{
-		i++;
+	while (all->map[++i])
 		len++;
-	}
 	all->final = malloc(sizeof(char *) * (len + 1));
 	if (!all->final)
 	{
 		free_map(all);
-		free(all->line); // i should free pics here
+		free(all->line);
 		exit (1);
 	}
 	i = identify_the_start(all);
-	while (all->map[i])
-	{
-		all->final[j] = ft_strdup(all->map[i]);
-		i++;
-		j++;
-	}
+	while (all->map[i++])
+		all->final[j++] = ft_strdup(all->map[i - 1]);
 	all->final[j] = NULL;
 }

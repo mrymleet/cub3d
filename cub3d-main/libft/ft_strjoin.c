@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:25:34 by mel-moun          #+#    #+#             */
-/*   Updated: 2022/10/21 10:28:20 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:54:06 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*p;
 	size_t	j;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	if (!s2[0] && !s1)
 		return (NULL);
@@ -27,11 +27,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	p = (char *) malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen (s2)) + 1);
 	if (p == NULL)
 		return (NULL);
-	while (s1[i] != '\0')
-	{
+	while (s1[++i] != '\0')
 		p[i] = s1[i];
-		i++;
-	}
 	while (s2[j] != '\0')
 	{
 		p[i] = s2[j];

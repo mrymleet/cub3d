@@ -3,18 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:32:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/23 12:43:30 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:35:14 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
+
+int	store_colors_(t_all *all)
+{
+	char	*tmp;
+	char	c;
+
+	tmp = ft_strtrim(all->map[all->i], " \t");
+	if (!ft_strncmp(tmp, "F", 1) || !ft_strncmp(tmp, "C", 1))
+	{
+		c = tmp[0];
+		if (count_virgules(tmp) != 2 \
+		|| check_numbers(all, ft_strchr(tmp, c)))
+		{
+			free(tmp);
+			tmp = NULL;
+			return (1);
+		}
+	}
+	free(tmp);
+	tmp = NULL;
+	all->count++;
+	return (0);
+}
 
 int	colors(t_all *all)
 {
-	char	c;
 	char	*tmp;
 
 	all->i = 0;
@@ -24,21 +46,8 @@ int	colors(t_all *all)
 	{
 		if (!string_empty(all->map[all->i]))
 		{
-			tmp = ft_strtrim(all->map[all->i], " \t");
-			if (!ft_strncmp(tmp, "F", 1) || !ft_strncmp(tmp, "C", 1))
-			{
-				c = tmp[0];
-				if (count_virgules(tmp) != 2 \
-				|| check_numbers(all, ft_strchr(tmp, c)))
-				{
-					free(tmp);
-					tmp = NULL;
-					return (1);
-				}
-			}
-			free(tmp);
-			tmp = NULL;
-			all->count++;
+			if (store_colors_(all))
+				return (1);
 		}
 		all->i++;
 	}
