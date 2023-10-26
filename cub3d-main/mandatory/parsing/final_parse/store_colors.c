@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:44:02 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 18:48:56 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:16:09 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	store_colors(t_all *all)
 			if (exact_color(all, tmp))
 			{
 				free(tmp);
+				free_line_map(all);
 				exit (1);
 			}
 			all->count++;

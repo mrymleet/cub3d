@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:45:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 19:22:19 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:59:40 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	store_them(t_all *all)
 	if (!tmp)
 	{
 		free_line_map(all);
-		free_pics(all);
 		exit (1);
 	}
 	tmp1 = ft_strtrim(tmp + 2, " \t");
@@ -29,7 +28,6 @@ void	store_them(t_all *all)
 	{
 		free(tmp);
 		free_line_map(all);
-		free_pics(all);
 		exit (1);
 	}
 	if (!ft_strncmp(tmp, "NO", 2))

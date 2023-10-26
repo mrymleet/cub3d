@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:04:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/25 13:42:48 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 16:17:32 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	load_textures(t_all *all)
 	|| !all->textures[2] || !all->textures[3])
 	{
 		free_map(all);
+		free_pics(all);
 		exit(1);
 	}
 }
