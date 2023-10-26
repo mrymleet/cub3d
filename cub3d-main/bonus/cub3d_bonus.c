@@ -6,11 +6,25 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/25 17:46:23 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:53:28 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+void	free_the_end(t_all *all)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		mlx_delete_texture(all->textures[i]);
+		i++;
+	}
+	if (all->game)
+		free(all->game);
+}
 
 int	main(int ac, char **av)
 {
@@ -35,5 +49,6 @@ int	main(int ac, char **av)
 	mlx_loop_hook(all.game->mlx, moving_hook, &all);
 	mlx_loop(all.game->mlx);
 	mlx_terminate(all.game->mlx);
+	free_the_end(&all);
 	return (EXIT_SUCCESS);
 }
