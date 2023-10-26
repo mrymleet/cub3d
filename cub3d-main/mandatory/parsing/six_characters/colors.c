@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:32:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 14:32:44 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:17:14 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,24 @@ int	colors(t_all *all)
 	return (0);
 }
 
-int	count_virgules(char *str)
+int	check_numbers_(t_all *all, int i, int num)
 {
-	int	count;
-	int	i;
-
-	count = 0;
 	i = 0;
-	while (str[i])
+	while (all->tmp[i])
 	{
-		if (str[i] == ',')
-			count++;
+		if (only_num(all->tmp[i]) || check_num(all->tmp[i]))
+			return (1);
+		num = ft_atoi(all->tmp[i]);
+		if (!(num >= 0 && num <= 255))
+			return (1);
 		i++;
 	}
-	return (count);
+	return (0);
 }
 
 int	check_numbers(t_all *all, char *str)
 {
 	int	i;
-	int	num;
 
 	i = 0;
 	all->tmp = ft_split(str, ',');
@@ -87,16 +85,8 @@ int	check_numbers(t_all *all, char *str)
 			return (1);
 		i++;
 	}
-	i = 0;
-	while (all->tmp[i])
-	{
-		if (only_num(all->tmp[i]) || check_num(all->tmp[i]))
-			return (1);
-		num = ft_atoi(all->tmp[i]);
-		if (!(num >= 0 && num <= 255))
-			return (1);
-		i++;
-	}
+	if (check_numbers_(all, 0, 0))
+		return (1);
 	if (i != 3)
 		return (1);
 	free_tmp(all);

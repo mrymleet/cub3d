@@ -15,7 +15,7 @@ SRC= mandatory/cub3d.c\
 get_next_line/get_next_line.c\
 mandatory/parsing/check_map/characters.c mandatory/parsing/check_map/empty_zero_one.c mandatory/parsing/check_map/newlines.c mandatory/parsing/check_map/surronded.c\
 mandatory/parsing/final_parse/store_colors.c mandatory/parsing/final_parse/store_map.c mandatory/parsing/final_parse/store_pictures.c mandatory/parsing/final_parse/store_player.c mandatory/parsing/final_parse/to_raycasting.c\
-mandatory/parsing/six_characters/colors.c mandatory/parsing/six_characters/existance.c mandatory/parsing/six_characters/path.c\
+mandatory/parsing/six_characters/colors.c mandatory/parsing/six_characters/colors_.c mandatory/parsing/six_characters/existance.c mandatory/parsing/six_characters/path.c\
 mandatory/parsing/others/free.c mandatory/parsing/others/read_map.c mandatory/parsing/others/split.c mandatory/parsing/others/string.c\
 mandatory/game/build.c mandatory/game/draw.c mandatory/game/move.c mandatory/game/init_data.c\
 mandatory/game/ray_casting/ray_cast.c mandatory/game/ray_casting/get_inters_horizontals.c mandatory/game/ray_casting/get_inters_verticals.c\
