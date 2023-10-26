@@ -6,13 +6,13 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:17:26 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 17:17:39 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:27:27 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-int count_virgules(char *str)
+int	count_virgules(char *str)
 {
 	int	count;
 	int	i;

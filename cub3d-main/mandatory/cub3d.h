@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 17:39:49 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:11:20 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ int		colors(t_all *all);
 int		count_virgules(char *str);
 int		check_numbers(t_all *all, char *str);
 int		check_numbers_(t_all *all, int i, int num);
+int		cmp(t_all *all);
 
 //check validity of the map
 int		identify_the_start(t_all *all);

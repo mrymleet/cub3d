@@ -6,11 +6,23 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:45:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 15:59:40 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:26:35 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
+
+void	to_pics(t_all *all, char *tmp, char *tmp1)
+{
+	if (!ft_strncmp(tmp, "NO", 2))
+		all->pics[0] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+	else if (!ft_strncmp(tmp, "EA", 2))
+		all->pics[1] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+	else if (!ft_strncmp(tmp, "SO", 2))
+		all->pics[2] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+	else if (!ft_strncmp(tmp, "WE", 2))
+		all->pics[3] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+}
 
 void	store_them(t_all *all)
 {
@@ -30,14 +42,7 @@ void	store_them(t_all *all)
 		free_line_map(all);
 		exit (1);
 	}
-	if (!ft_strncmp(tmp, "NO", 2))
-		all->pics[0] = ft_substr(tmp1, 0, ft_strlen(tmp1)); //nchof kindir l substr sinon blash
-	else if (!ft_strncmp(tmp, "EA", 2))
-		all->pics[1] = ft_substr(tmp1, 0, ft_strlen(tmp1));
-	else if (!ft_strncmp(tmp, "SO", 2))
-		all->pics[2] = ft_substr(tmp1, 0, ft_strlen(tmp1));
-	else if (!ft_strncmp(tmp, "WE", 2))
-		all->pics[3] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+	to_pics(all, tmp, tmp1);
 	all->count++;
 	free(tmp);
 	tmp = NULL;
