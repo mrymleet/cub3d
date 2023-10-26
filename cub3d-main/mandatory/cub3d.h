@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 13:18:17 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:32:36 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <stdio.h>
 # include <unistd.h>
 
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIDTH 1200
+# define HEIGHT 600
 
 # define SQUARE_SIZE 50
 # define PLAYER_SIZE 10
