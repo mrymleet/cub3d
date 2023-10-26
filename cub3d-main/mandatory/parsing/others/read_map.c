@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:23:42 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:56:29 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:08:27 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,13 @@ int	is_map_valid(t_all *all)
 	{
 		free_map(all);
 		free(all->line);
+		printf("bsala\n");
 		return (1);
 	}
 	if (check_map_characters(all) || check_newlines(all) \
 	|| surronded(all) || check_empty(all) || last_line(all))
 	{
+		printf("OHO bsala\n");
 		free_map(all);
 		free(all->line);
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:39:03 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 16:45:21 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:29:58 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ int	check_empty(t_all *all)
 			|| all->map[all->i][all->j] == 'E'\
 			|| all->map[all->i][all->j] == 'S')
 			{
+				if ((ft_strlen(all->map[all->i - 1]) < ft_strlen(all->map[all->i]) && (ft_strlen(all->map[all->i - 1]) - 1 < (unsigned long)all->j)) 
+				|| (ft_strlen(all->map[all->i + 1]) < ft_strlen(all->map[all->i]) &&  (ft_strlen(all->map[all->i + 1]) - 1 < (unsigned long)all->j)))
+					return (1);
 				if (empty(all, 32) || empty(all, '\t') \
 				|| empty(all, '\0'))
 					return (1);
