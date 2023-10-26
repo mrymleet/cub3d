@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:25:34 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 16:54:06 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 08:56:36 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		j++;
 	}
 	p[i] = '\0';
+	free((char *)s1);
 	return (p);
 }

@@ -3,9 +3,10 @@ libft=libft/libft.a
 NAME	= cub3D
 
 CC		:= cc
-FLAGS	:= -Wextra -Wall -Werror -fsanitize=address -g
+FLAGS	:= -Wextra -Wall -Werror #-fsanitize=address -g
 LIBMLX	:= /Users/$(USER)/MLX42
-LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" -pthread -lm
+# LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" -pthread -lm
+LIBS = $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -pthread -lm #-L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" 
 
 INCLUDES = -I $(LIBMLX)/include
 
