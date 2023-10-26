@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/25 12:45:12 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:41:28 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ typedef struct s_all
 //reading map + to check its validity
 void	read_map(char *str, t_all *all);
 int		is_map_valid(t_all *all);
-void	map_error(int err, t_all *all);
+void	map_error(int err);
 
 //check for 6 first characters
 int		all_characters_exits(t_all *all);
