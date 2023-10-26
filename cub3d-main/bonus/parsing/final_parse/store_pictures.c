@@ -6,19 +6,14 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:45:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:38:08 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d_bonus.h"
 
-void	store_them(t_all *all)
+void	to_pics(t_all *all, char *tmp, char *tmp1)
 {
-	char	*tmp;
-	char	*tmp1;
-
-	tmp = ft_strtrim(all->map[all->i], " \t");
-	tmp1 = ft_strtrim(tmp + 2, " \t");
 	if (!ft_strncmp(tmp, "NO", 2))
 		all->pics[0] = ft_substr(tmp1, 0, ft_strlen(tmp1));
 	else if (!ft_strncmp(tmp, "EA", 2))
@@ -27,6 +22,27 @@ void	store_them(t_all *all)
 		all->pics[2] = ft_substr(tmp1, 0, ft_strlen(tmp1));
 	else if (!ft_strncmp(tmp, "WE", 2))
 		all->pics[3] = ft_substr(tmp1, 0, ft_strlen(tmp1));
+}
+
+void	store_them(t_all *all)
+{
+	char	*tmp;
+	char	*tmp1;
+
+	tmp = ft_strtrim(all->map[all->i], " \t");
+	if (!tmp)
+	{
+		free_line_map(all);
+		exit (1);
+	}
+	tmp1 = ft_strtrim(tmp + 2, " \t");
+	if (!tmp1)
+	{
+		free(tmp);
+		free_line_map(all);
+		exit (1);
+	}
+	to_pics(all, tmp, tmp1);
 	all->count++;
 	free(tmp);
 	tmp = NULL;
@@ -39,8 +55,7 @@ void	store_pictures(t_all *all)
 	all->pics = malloc(sizeof(char *) * 5);
 	if (!all->pics)
 	{
-		free(all->line);
-		free_map(all);
+		free_line_map(all);
 		exit (1);
 	}
 	all->i = 0;

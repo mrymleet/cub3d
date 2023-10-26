@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 13:41:28 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:34:07 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ int		path(char *s);
 int		colors(t_all *all);
 int		count_virgules(char *str);
 int		check_numbers(t_all *all, char *str);
+int		check_numbers_(t_all *all, int i, int num);
+int		cmp(t_all *all);
 
 //check validity of the map
 int		identify_the_start(t_all *all);
@@ -121,22 +123,28 @@ int		up_down(t_all *all, int i);
 int		right_left(t_all *all, int i);
 int		check_empty(t_all *all);
 int		empty(t_all *all, char c);
+void	count_characters(t_all *all);
 int		last_line(t_all *all);
 
 //what raycaster needs
 void	parsing(t_all *all);
 void	store_player(t_all *all);
 void	store_colors(t_all *all);
+int		store_colors_(t_all *all);
 void	store_map(t_all *all);
-void	exact_color(t_all *all, char *tmp);
+int		exact_color(t_all *all, char *tmp);
+void	store_colors_prob(t_all *all);
 void	store_colors_again(int i, char *tmp, t_all *all);
 void	store_pictures(t_all *all);
+void	store_them(t_all *all);
 
 //free stuffs
 void	free_tmp(t_all *all);
 void	free_map(t_all *all);
 void	free_all_ccs(t_all *all);
 void	free_pics(t_all *all);
+void	free_the_end(t_all *all);
+void	free_line_map(t_all *all);
 
 //some string's manipulation
 char	**split_two(char *s);

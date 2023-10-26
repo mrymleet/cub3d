@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:32:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:47:25 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	store_colors_(t_all *all)
 	char	c;
 
 	tmp = ft_strtrim(all->map[all->i], " \t");
+	if (!tmp)
+		return (1);
 	if (!ft_strncmp(tmp, "F", 1) || !ft_strncmp(tmp, "C", 1))
 	{
 		c = tmp[0];
@@ -54,31 +56,9 @@ int	colors(t_all *all)
 	return (0);
 }
 
-int	count_virgules(char *str)
+int	check_numbers_(t_all *all, int i, int num)
 {
-	int	count;
-	int	i;
-
-	count = 0;
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == ',')
-			count++;
-		i++;
-	}
-	return (count);
-}
-
-int	check_numbers(t_all *all, char *str)
-{
-	int	i;
-	int	num;
-
-	i = 0;
-	all->tmp = ft_split(str, ',');
-	if (!all->tmp)
-		return (1);//free 
 	while (all->tmp[i])
 	{
 		if (only_num(all->tmp[i]) || check_num(all->tmp[i]))
@@ -88,6 +68,25 @@ int	check_numbers(t_all *all, char *str)
 			return (1);
 		i++;
 	}
+	return (0);
+}
+
+int	check_numbers(t_all *all, char *str)
+{
+	int	i;
+
+	i = 0;
+	all->tmp = ft_split(str, ',');
+	if (!all->tmp)
+		return (1);
+	while (all->tmp[i])
+	{
+		if (string_empty(all->tmp[i]))
+			return (1);
+		i++;
+	}
+	if (check_numbers_(all, 0, 0))
+		return (1);
 	if (i != 3)
 		return (1);
 	free_tmp(all);

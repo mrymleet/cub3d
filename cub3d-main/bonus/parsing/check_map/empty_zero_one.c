@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:39:03 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:37:55 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,16 @@ int	empty(t_all *all, char c)
 	|| all->map[all->i][all->j - 1] == c \
 	|| all->map[all->i - 1][all->j] == c \
 	|| all->map[all->i + 1][all->j] == c)
+		return (1);
+	return (0);
+}
+
+int	cmp(t_all *all)
+{
+	if ((ft_strlen(all->map[all->i - 1]) < ft_strlen(all->map[all->i]) \
+	&& (ft_strlen(all->map[all->i - 1]) - 1 < (unsigned long)all->j)) \
+	|| (ft_strlen(all->map[all->i + 1]) < ft_strlen(all->map[all->i]) \
+	&& (ft_strlen(all->map[all->i + 1]) - 1 < (unsigned long)all->j)))
 		return (1);
 	return (0);
 }
@@ -36,6 +46,8 @@ int	check_empty(t_all *all)
 			|| all->map[all->i][all->j] == 'E'\
 			|| all->map[all->i][all->j] == 'S')
 			{
+				if (cmp(all))
+					return (1); 
 				if (empty(all, 32) || empty(all, '\t') \
 				|| empty(all, '\0'))
 					return (1);

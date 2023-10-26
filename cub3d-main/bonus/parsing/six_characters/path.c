@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:31:38 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 17:38:37 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	check_path(t_all *all)
 	{
 		if (!string_empty(all->map[all->i]))
 		{
-			test = ft_strtrim(all->map[all->i], " ");
+			test = ft_strtrim(all->map[all->i], " \t");
+			if (!test)
+				return (1);
 			if (path(test))
 			{
 				free(test);

@@ -32,6 +32,7 @@ bonus/game/build_bonus.c bonus/game/draw_bonus.c bonus/game/move_bonus.c bonus/g
 bonus/game/ray_casting_bonus/ray_cast.c bonus/game/ray_casting_bonus/get_inters_horizontals.c bonus/game/ray_casting_bonus/get_inters_verticals.c\
 bonus/game/build_3d_bonus.c \
 bonus/game/clearing_bonus.c bonus/game/utils_bonus.c  bonus/game/mouse_hook.c\
+bonus/parsing/six_characters/colors_.c\
 
 OBJ=$(SRC:.c=.o)
 
