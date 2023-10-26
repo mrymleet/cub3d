@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:04:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 12:42:35 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:04:44 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,11 @@ void	load_textures(t_all *all)
 	all->textures[1] = mlx_load_png(all->pics[1]);
 	all->textures[2] = mlx_load_png(all->pics[2]);
 	all->textures[3] = mlx_load_png(all->pics[3]);
+	if (!all->textures[0] || !all->textures[1] \
+	|| !all->textures[2] || !all->textures[3])
+	{
+		free_map(all);
+		free_pics(all);
+		exit(1);
+	}
 }

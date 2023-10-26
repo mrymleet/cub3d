@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/25 15:51:23 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 20:01:10 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,46 @@
 void	create_window_and_images(t_all *all)
 {
 	all->game = malloc(sizeof(t_game));
+	if (!all->game)
+		exit(1);
 	all->game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3d", true);
+	if (!all->game->mlx)
+	{
+		free(all->game);
+		exit(1);
+	}
+	create_images(all);
+	if (mlx_image_to_window(all->game->mlx, all->game->img_3d, 0, 0) == -1)
+	{
+		free(all->game);
+		mlx_delete_image(all->game->mlx, all->game->img_2d);
+		mlx_delete_image(all->game->mlx, all->game->img_3d);
+		exit(1);
+	}
+	if (mlx_image_to_window(all->game->mlx, all->game->img_2d, 0, 0) == -1)
+	{
+		free(all->game);
+		mlx_delete_image(all->game->mlx, all->game->img_2d);
+		mlx_delete_image(all->game->mlx, all->game->img_3d);
+		exit(1);
+	}
+}
+
+void	create_images(t_all *all)
+{
 	all->game->img_2d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
+	if (!all->game->img_2d)
+	{
+		mlx_delete_image(all->game->mlx, all->game->img_2d);
+		exit(1);
+	}
 	all->game->img_3d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
-	mlx_image_to_window(all->game->mlx, all->game->img_3d, 0, 0);
-	mlx_image_to_window(all->game->mlx, all->game->img_2d, 0, 0);
+	if (!all->game->img_3d)
+	{
+		mlx_delete_image(all->game->mlx, all->game->img_2d);
+		mlx_delete_image(all->game->mlx, all->game->img_3d);
+		exit(1);
+	}
 }
 
 void	build_window(t_all *all)

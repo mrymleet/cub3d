@@ -1,12 +1,13 @@
 libft=libft/libft.a
 
 NAME	= cub3D
+NAME_B	= cub3D_bonus
 
 CC		:= cc
 FLAGS	:= -Wextra -Wall -Werror #-fsanitize=address -g
 LIBMLX	:= /Users/$(USER)/MLX42
 # LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" -pthread -lm
-LIBS = $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -pthread -lm #-L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" 
+LIBS = $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -pthread -lm -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" 
 
 INCLUDES = -I $(LIBMLX)/include
 
@@ -40,8 +41,10 @@ OBJ_BONUS=$(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
-bonus : ${OBJ_BONUS} $(libft)
-	${CC} ${FLAGS} ${OBJ_BONUS} $(INCLUDES) $(libft) $(LIBS) -o $(NAME)
+bonus : $(NAME_B)
+
+$(NAME_B): ${OBJ_BONUS} $(libft)
+	${CC} ${FLAGS} ${OBJ_BONUS} $(INCLUDES) $(libft) $(LIBS) -o $(NAME_B)
 
 $(libft):
 	make -C libft
@@ -60,6 +63,7 @@ clean:
 fclean: clean
 	make -C libft fclean
 	rm -rf $(NAME)
+	rm -rf $(NAME_B)
 
 re: fclean  all
 

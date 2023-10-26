@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 18:53:28 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:18:02 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	parsing(&all);
-	all.map = all.final;
 	create_window_and_images(&all);
+	all.map = all.final;
 	init_data(&all);
 	mlx_loop_hook(all.game->mlx, close_window, &all);
 	mlx_loop_hook(all.game->mlx, moving_hook, &all);
