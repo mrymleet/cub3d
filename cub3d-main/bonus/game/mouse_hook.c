@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:18:03 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 11:52:36 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:08:55 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	mouse(double x, double y, void	*par)
 	all = par;
 	mlx_set_cursor_mode(all->game->mlx, MLX_MOUSE_HIDDEN);
 	mlx_set_mouse_pos(all->game->mlx, WIDTH / 2, HEIGHT / 2);
-	all->game->player_ang = bound_angle(all->game->player_ang + ((x - WIDTH / 2) * SENS));
+	all->game->player_ang = bound_angle(all->game->player_ang
+			+ ((x - WIDTH / 2) * SENS));
 }

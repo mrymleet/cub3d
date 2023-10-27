@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 11:46:00 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:58:29 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "/Users/mel-moun/MLX42/include/MLX42/MLX42.h"
+# include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
 
@@ -191,5 +191,6 @@ void	init_data(t_all *all);
 void	load_textures(t_all *all);
 void	draw_square(t_all *all, int x, int y);
 void	create_images(t_all *all);
-
+void	choose_h_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
+void	choose_v_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
 #endif

@@ -4,7 +4,7 @@ NAME	= cub3D
 NAME_B	= cub3D_bonus
 
 CC		:= cc
-FLAGS	:= -Wextra -Wall -Werror #-fsanitize=address -g
+FLAGS	:= -Wextra -Wall -Werror -fsanitize=address -g
 LIBMLX	:= /Users/$(USER)/MLX42
 # LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" -pthread -lm
 LIBS = $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -pthread -lm -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" 
@@ -20,7 +20,7 @@ mandatory/parsing/six_characters/colors.c mandatory/parsing/six_characters/color
 mandatory/parsing/others/free.c mandatory/parsing/others/read_map.c mandatory/parsing/others/split.c mandatory/parsing/others/string.c\
 mandatory/game/build.c mandatory/game/draw.c mandatory/game/move.c mandatory/game/init_data.c\
 mandatory/game/ray_casting/ray_cast.c mandatory/game/ray_casting/get_inters_horizontals.c mandatory/game/ray_casting/get_inters_verticals.c\
-mandatory/game/build_3d.c \
+mandatory/game/build_3d.c mandatory/game/render_texture.c \
 mandatory/game/clearing.c mandatory/game/utils.c \
 
 SRC_BONUS = bonus/cub3d_bonus.c \
@@ -31,7 +31,7 @@ bonus/parsing/six_characters/colors.c bonus/parsing/six_characters/existance.c b
 bonus/parsing/others/free.c bonus/parsing/others/read_map.c bonus/parsing/others/split.c bonus/parsing/others/string.c\
 bonus/game/build_bonus.c bonus/game/draw_bonus.c bonus/game/move_bonus.c bonus/game/init_data_bonus.c\
 bonus/game/ray_casting_bonus/ray_cast.c bonus/game/ray_casting_bonus/get_inters_horizontals.c bonus/game/ray_casting_bonus/get_inters_verticals.c\
-bonus/game/build_3d_bonus.c \
+bonus/game/build_3d_bonus.c bonus/game/render_texture_bonus.c\
 bonus/game/clearing_bonus.c bonus/game/utils_bonus.c  bonus/game/mouse_hook.c\
 bonus/parsing/six_characters/colors_.c\
 

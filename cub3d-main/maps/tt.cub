@@ -1,11 +1,11 @@
-SO      ./textures/south.png 
+SO      ./textures/monalisa1024.png 
 
 
-WE       ./textures/west.png
+WE       ./textures/monalisa1024.png
 
-NO ./textures/monalisa.png
+NO ./textures/monalisa1024.png
 
-EA ./textures/est.png
+EA ./textures/monalisa1024.png
 
 F 209 , 201 ,     210
 

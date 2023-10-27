@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 11:12:14 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/27 20:12:17 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,4 +194,7 @@ void	draw_square(t_all *all, int x, int y);
 void	mouse_hook(t_all *all);
 void	mouse(double x, double y, void	*par);
 void	create_images(t_all *all);
+void	choose_h_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
+void	choose_v_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
+
 #endif
