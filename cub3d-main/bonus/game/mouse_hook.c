@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 13:18:03 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/25 16:34:08 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:52:36 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,15 @@ void	mouse_hook(t_all *all)
 			&& all->game->mouse_y < HEIGHT && all->game->mouse_y >= 0)
 			all->game->player_ang = bound_angle(all->game->player_ang + 3);
 	}
+}
+
+void	mouse(double x, double y, void	*par)
+{
+	t_all	*all;
+
+	(void)y;
+	all = par;
+	mlx_set_cursor_mode(all->game->mlx, MLX_MOUSE_HIDDEN);
+	mlx_set_mouse_pos(all->game->mlx, WIDTH / 2, HEIGHT / 2);
+	all->game->player_ang = bound_angle(all->game->player_ang + ((x - WIDTH / 2) * SENS));
 }

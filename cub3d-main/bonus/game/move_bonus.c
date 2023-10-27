@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 10:37:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 13:17:47 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/27 10:46:11 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	moving_hook(void *param)
 		move_down(all);
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_A))
 		move_left(all);
-	mouse_hook(all);
+	// mouse_hook(all);
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_LEFT))
 		all->game->player_ang = bound_angle(all->game->player_ang - 3);
 	if (mlx_is_key_down(all->game->mlx, MLX_KEY_RIGHT))

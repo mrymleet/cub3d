@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 20:01:41 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:12:14 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
+# include "MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
 
@@ -26,8 +26,9 @@
 
 # define SQUARE_SIZE 50
 # define PLAYER_SIZE 10
-# define SCALE 3
+# define SCALE 5
 # define STEP 2
+# define SENS 0.2
 
 typedef struct s_point
 {
@@ -191,5 +192,6 @@ void	init_data(t_all *all);
 void	load_textures(t_all *all);
 void	draw_square(t_all *all, int x, int y);
 void	mouse_hook(t_all *all);
+void	mouse(double x, double y, void	*par);
 void	create_images(t_all *all);
 #endif

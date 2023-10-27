@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:38:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 13:10:53 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:48:26 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_columns(t_all *data, t_point p, float height, t_ray ray)
 		texture = data->textures[2];
 		if (ray.angle < 270 && ray.angle > 90)
 			texture = data->textures[3];
-		width_ratio = (float)(texture->width / SQUARE_SIZE);
+		width_ratio = (float)(texture->height / SQUARE_SIZE);
 		d_point.texture.x = fmod(ray.wall_hit_y, SQUARE_SIZE) * (width_ratio);
 	}
 	draw_text(data, d_point, height, texture);
