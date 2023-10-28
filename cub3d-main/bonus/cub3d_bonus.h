@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 11:58:37 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:07:01 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@
 # include <stdio.h>
 # include <unistd.h>
 
-# define WIDTH 1300
-# define HEIGHT 800
+# define WIDTH 1280
+# define HEIGHT 720
 
-# define SQUARE_SIZE 50
+# define SQUARE_SIZE 64
 # define PLAYER_SIZE 10
-# define SCALE 3
+# define SCALE 10
 # define STEP 2
+# define SPEED 6
 # define SENS 0.2
 
 typedef struct s_point

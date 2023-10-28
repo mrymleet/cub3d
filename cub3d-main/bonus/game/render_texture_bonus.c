@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_texture_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:11:51 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 20:11:58 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:15:21 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	draw_text(t_all *data, t_d_point d_point, float h, mlx_texture_t *tex)
 	uint8_t			*pi;
 
 	p1.x = d_point.texture.x;
-	p1.y = -1;
+	p1.y = 2;
 	p2.x = d_point.my_image.x;
 	p2.y = d_point.my_image.y - 1;
 	if (h > data->game->img_3d->height)

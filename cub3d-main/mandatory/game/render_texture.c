@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_texture.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:09:47 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 20:10:38 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:15:09 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	draw_text(t_all *data, t_d_point d_point, float h, mlx_texture_t *tex)
 	uint8_t			*pi;
 
 	p1.x = d_point.texture.x;
-	p1.y = -1;
+	p1.y = 2;
 	p2.x = d_point.my_image.x;
 	p2.y = d_point.my_image.y - 1;
 	if (h > data->game->img_3d->height)
@@ -43,7 +43,7 @@ void	draw_text(t_all *data, t_d_point d_point, float h, mlx_texture_t *tex)
 		p2.y = 0;
 	while (++p2.y < (int)data->game->img_3d->height - 1 && ++p1.y < h - 1)
 	{
-		d_point.texture.y = p1.y * (float) tex->height / h;
+		d_point.texture.y = p1.y * (float)tex->height / h;
 		if (d_point.texture.y < tex->height
 			&& (d_point.texture.y * tex->width + p1.x)
 			< tex->width * tex->height)

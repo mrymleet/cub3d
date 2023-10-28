@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 12:33:37 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:07:10 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,18 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "/Users/mel-moun/MLX42/include/MLX42/MLX42.h"
+# include "MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
 
-# define WIDTH 1200
-# define HEIGHT 600
+# define WIDTH 1280
+# define HEIGHT 720
 
-# define SQUARE_SIZE 50
+# define SQUARE_SIZE 64
 # define PLAYER_SIZE 10
-# define SCALE 3
+# define SCALE 10
 # define STEP 2
+# define SPEED 2
 
 typedef struct s_point
 {
