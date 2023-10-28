@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:04 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 13:17:38 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/28 19:06:48 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,12 @@ void	move_up(t_all *all)
 {
 	t_point		des;
 
+
+	
+
+
 	des.x = cos(all->game->player_ang * (M_PI / 180)) * SPEED;
-	des.y = sin(all->game->player_ang * (M_PI / 180)) * SPEED;
+	des.y = 0;
 	if (all->map[(int)(all->game->position.y + 3 * des.y + 1) / SQUARE_SIZE]
 		[(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
 		&& all->map[(int)(all->game->position.y + 3 * des.y) / SQUARE_SIZE]
@@ -52,8 +56,48 @@ void	move_up(t_all *all)
 		[(int)(all->game->position.x + 3 * des.x - 1) / SQUARE_SIZE] != '1')
 	{
 		all->game->position.x += 2 * des.x;
+		
+	}
+	des.x = 0;
+	des.y = sin(all->game->player_ang * (M_PI / 180)) * SPEED;
+	if (all->map[(int)(all->game->position.y + 3 * des.y + 1) / SQUARE_SIZE]
+		[(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
+		&& all->map[(int)(all->game->position.y + 3 * des.y) / SQUARE_SIZE]
+		[(int)(all->game->position.x + 3 * des.x + 1) / SQUARE_SIZE] != '1'
+		&& all->map[(int)(all->game->position.y + 3 * des.y - 1) / SQUARE_SIZE]
+		[(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
+		&& all->map[(int)(all->game->position.y + 3 * des.y) / SQUARE_SIZE]
+		[(int)(all->game->position.x + 3 * des.x - 1) / SQUARE_SIZE] != '1')
+	{
 		all->game->position.y += 2 * des.y;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// des.x = cos(all->game->player_ang * (M_PI / 180)) * SPEED;
+	// des.y = sin(all->game->player_ang * (M_PI / 180)) * SPEED;
+	// if (all->map[(int)(all->game->position.y + 3 * des.y + 1) / SQUARE_SIZE]
+	// 	[(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
+	// 	&& all->map[(int)(all->game->position.y + 3 * des.y) / SQUARE_SIZE]
+	// 	[(int)(all->game->position.x + 3 * des.x + 1) / SQUARE_SIZE] != '1'
+	// 	&& all->map[(int)(all->game->position.y + 3 * des.y - 1) / SQUARE_SIZE]
+	// 	[(int)(all->game->position.x + 3 * des.x) / SQUARE_SIZE] != '1'
+	// 	&& all->map[(int)(all->game->position.y + 3 * des.y) / SQUARE_SIZE]
+	// 	[(int)(all->game->position.x + 3 * des.x - 1) / SQUARE_SIZE] != '1')
+	// {
+	// 	all->game->position.x += 2 * des.x;
+	// 	all->game->position.y += 2 * des.y;
+	// }
 }
 
 void	move_down(t_all *all)
