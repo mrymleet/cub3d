@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:04:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 17:42:05 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:53:52 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,26 @@ void	init_data(t_all *all)
 
 void	load_textures(t_all *all)
 {
-	all->textures[0] = mlx_load_png(all->pics[0]);
-	all->textures[1] = mlx_load_png(all->pics[1]);
-	all->textures[2] = mlx_load_png(all->pics[2]);
-	all->textures[3] = mlx_load_png(all->pics[3]);
+	int		i;
+
+	i = -1;
+	while (++i < 4)
+		all->textures[i] = mlx_load_png(all->pics[i]);
 	if (!all->textures[0] || !all->textures[1] \
 	|| !all->textures[2] || !all->textures[3])
 	{
 		free_map(all);
 		free_pics(all);
 		exit(1);
+	}
+	i = -1;
+	while (++i < 4)
+	{
+		if (all->textures[i]->width != 512 \
+		|| all->textures[i]->height != 512)
+		{
+			printf("Error\n");
+			exit (1);
+		}
 	}
 }
