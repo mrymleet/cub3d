@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:53:31 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/19 13:10:49 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:25:52 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,22 @@ int	count_rows(char **str)
 	return (count);
 }
 
-int	count_cols(char *str)
+int	count_cols(char **str)
 {
+	int		i;
+	int		j;
 	int		count;
 
 	count = 0;
-	while (str && str[count])
-		count++;
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+			j++;
+		if (j > count)
+			count = j;
+		i++;
+	}
 	return (count);
 }

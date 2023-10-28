@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 12:42:33 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:23:55 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,9 @@ void	draw_block(mlx_image_t *canvas, double point[2], long color)
 		col = -1;
 		while (++col < SQUARE_SIZE)
 		{
-			if ((pos.x + col) / SCALE > 0 && (pos.x + col) / SCALE < WIDTH
-				&& (pos.y + row) / SCALE > 0 && (pos.y + row) / SCALE < HEIGHT)
+			if ((pos.x + col) / SCALE > 0 && (pos.y + row) / SCALE > 0
+				&& (pos.x + col) / SCALE < canvas->width
+				&& (pos.y + row) / SCALE < canvas->height)
 				mlx_put_pixel(canvas, (pos.x + col) / SCALE,
 					(pos.y + row) / SCALE, color);
 		}

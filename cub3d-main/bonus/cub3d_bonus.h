@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 20:12:17 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 11:58:37 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 # include <stdio.h>
 # include <unistd.h>
 
-# define WIDTH 1200
-# define HEIGHT 600
+# define WIDTH 1300
+# define HEIGHT 800
 
 # define SQUARE_SIZE 50
 # define PLAYER_SIZE 10
-# define SCALE 5
+# define SCALE 3
 # define STEP 2
 # define SENS 0.2
 
@@ -176,7 +176,7 @@ void	draw_rays(t_all *data);
 float	distace_two_points(t_point src, t_point dst);
 int		wall_detected(t_all *data, t_point src);
 int		count_rows(char **str);
-int		count_cols(char *str);
+int		count_cols(char **str);
 t_ray	ray_cast(t_all *data, float angle);
 t_ray	get_inters_vertical(t_all *data, float angle);
 t_ray	get_inters_horizontals(t_all *data, float angle);

@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 08:38:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 20:13:02 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/27 22:09:26 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	draw_columns(t_all *data, t_point p, float height, t_ray ray)
 	else
 	{
 		choose_v_texture(data, ray, &texture);
-		width_ratio = (float)(texture->height / SQUARE_SIZE);
+		width_ratio = (float)(texture->width / SQUARE_SIZE);
 		d_point.texture.x = fmod(ray.wall_hit_y, SQUARE_SIZE) * (width_ratio);
 		if (ray.angle < 270 && ray.angle > 90)
 			d_point.texture.x = texture->width - 1 - d_point.texture.x;

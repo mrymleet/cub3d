@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 18:36:56 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 10:51:49 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:24:44 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,15 @@ void	get_wall_inters_v(t_all *data, t_point *p_intercept_v, float angle)
 	if (angle < 270 && angle > 90)
 		x_step *= -1;
 	y_step = x_step * tan(angle * (M_PI / 180));
-	while (p_intercept_v->x >= 0 && p_intercept_v->x < WIDTH
-		&& p_intercept_v->y >= 0 && p_intercept_v->y < HEIGHT)
+	while (p_intercept_v->x >= 0 && p_intercept_v->y >= 0
+		&& p_intercept_v->x < count_cols(data->map) * SQUARE_SIZE
+		&& p_intercept_v->y < count_rows(data->map) * SQUARE_SIZE)
 	{
 		p_check.x = floor(p_intercept_v->x / SQUARE_SIZE);
 		p_check.y = floor(p_intercept_v->y / SQUARE_SIZE);
-		if ((p_check.y >= count_rows(data->map)
-				|| p_check.x >= count_cols(data->map[(int)p_check.y]))
-			|| data->map[(int)p_check.y][(int)p_check.x] == '1')
+		if ((p_check.y < count_cols(data->map)
+				&& p_check.x < count_cols(data->map))
+			&& data->map[(int)p_check.y][(int)p_check.x] == '1')
 			break ;
 		else
 		{

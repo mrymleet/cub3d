@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 20:01:10 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 11:46:16 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	create_window_and_images(t_all *all)
 
 void	create_images(t_all *all)
 {
-	all->game->img_2d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
+	all->game->img_2d = mlx_new_image(all->game->mlx, WIDTH / 2, HEIGHT / 2);
 	if (!all->game->img_2d)
 	{
 		mlx_delete_image(all->game->mlx, all->game->img_2d);

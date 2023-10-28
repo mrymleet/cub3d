@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/27 19:58:29 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:25:59 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,7 @@ void	draw_rays(t_all *data);
 float	distace_two_points(t_point src, t_point dst);
 int		wall_detected(t_all *data, t_point src);
 int		count_rows(char **str);
-int		count_cols(char *str);
+int		count_cols(char **str);
 t_ray	ray_cast(t_all *data, float angle);
 t_ray	get_inters_vertical(t_all *data, float angle);
 t_ray	get_inters_horizontals(t_all *data, float angle);
