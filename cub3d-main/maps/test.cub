@@ -1,12 +1,12 @@
 C 23, 27, 38
-SO      ./textures/girl_with_a_pearl_earring.png
-NO  ./textures/monalisa.png
+SO      ./textures/south.png
+NO  ./textures/north.png
 
 
 
-WE ./textures/starry_nights.png
+WE ./textures/west.png
 
-EA ./textures/the_scream.png
+EA ./textures/est.png
 
 F 209,201,210
 
