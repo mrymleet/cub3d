@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:17:26 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:27:27 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 int	count_virgules(char *str)
 {

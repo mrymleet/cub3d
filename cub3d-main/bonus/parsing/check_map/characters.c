@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:34:44 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/25 18:16:11 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 int	check_map_characters(t_all *all)
 {

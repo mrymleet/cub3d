@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:55:37 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 18:32:32 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/21 17:11:52 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d_bonus.h"
+#include "../../cub3d.h"
 
 int	only_num(char *str)
 {
