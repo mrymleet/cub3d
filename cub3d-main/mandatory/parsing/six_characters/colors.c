@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:32:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 17:17:14 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:59:04 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,31 @@ int	colors(t_all *all)
 	return (0);
 }
 
+int	num_len(char *s)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	while (s[i] == 32 || s[i] == '\t')
+		i++;
+	while (s[i] >= '0' && s[i] <= '9')
+	{
+		len++;
+		i++;
+	}
+	return (len);
+}
+
 int	check_numbers_(t_all *all, int i, int num)
 {
 	i = 0;
 	while (all->tmp[i])
 	{
 		if (only_num(all->tmp[i]) || check_num(all->tmp[i]))
+			return (1);
+		if (num_len(all->tmp[i]) > 10)
 			return (1);
 		num = ft_atoi(all->tmp[i]);
 		if (!(num >= 0 && num <= 255))

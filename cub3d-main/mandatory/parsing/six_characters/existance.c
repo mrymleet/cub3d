@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:29:12 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 14:53:35 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:41:43 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	count_characters(t_all *all)
 		all->f++;
 	if (!ft_strncmp(test, "C", 1))
 		all->c++;
-	all->count++;
 	free(test);
 	test = NULL;
 }
@@ -55,10 +54,12 @@ void	count_characters(t_all *all)
 int	all_characters_exits(t_all *all)
 {
 	char	*test;
+	int		j;
 
 	test = NULL;
 	initialize_vars(all);
-	while (all->map[all->i] && all->count < 6)
+	j = identify_the_start(all);
+	while (all->map[all->i] && all->i < j)
 	{
 		if (!string_empty(all->map[all->i]))
 			count_characters(all);
