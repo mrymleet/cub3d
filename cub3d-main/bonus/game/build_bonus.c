@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 11:46:16 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:20:28 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,20 @@ void	create_window_and_images(t_all *all)
 		mlx_delete_image(all->game->mlx, all->game->img_3d);
 		exit(1);
 	}
-	if (mlx_image_to_window(all->game->mlx, all->game->img_2d, 0, 0) == -1)
+	check_minimap_length(all);
+}
+
+void	check_minimap_length(t_all *all)
+{
+	if (count_rows(all->final) < 17 && count_cols(all->final) < 46)
 	{
-		free(all->game);
-		mlx_delete_image(all->game->mlx, all->game->img_2d);
-		mlx_delete_image(all->game->mlx, all->game->img_3d);
-		exit(1);
+		if (mlx_image_to_window(all->game->mlx, all->game->img_2d, 0, 0) == -1)
+		{
+			free(all->game);
+			mlx_delete_image(all->game->mlx, all->game->img_2d);
+			mlx_delete_image(all->game->mlx, all->game->img_3d);
+			exit(1);
+		}
 	}
 }
 

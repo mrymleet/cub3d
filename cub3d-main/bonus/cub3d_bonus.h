@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 17:07:01 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 12:20:39 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 # define SQUARE_SIZE 64
 # define PLAYER_SIZE 10
-# define SCALE 10
+# define SCALE 4
 # define STEP 2
 # define SPEED 6
 # define SENS 0.2
@@ -197,5 +197,6 @@ void	mouse(double x, double y, void	*par);
 void	create_images(t_all *all);
 void	choose_h_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
 void	choose_v_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
+void	check_minimap_length(t_all *all);
 
 #endif

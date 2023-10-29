@@ -4,7 +4,7 @@ NAME	= cub3D
 NAME_B	= cub3D_bonus
 
 CC		:= cc
-FLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 -Ofast -flto #-fsanitize=address -g
+FLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -O3 -Ofast -flto -fsanitize=address -g
 LIBMLX	:= /Users/$(USER)/MLX42
 # LIBS	:= $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" -pthread -lm
 LIBS = $(LIBMLX)/build/libmlx42.a -Iinclude -ldl -lglfw  -pthread -lm -L"/Users/$(USER)/goinfre/homebrew/opt/glfw/lib" 
