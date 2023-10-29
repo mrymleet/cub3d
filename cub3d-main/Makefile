@@ -36,6 +36,7 @@ bonus/game/build_3d_bonus.c bonus/game/render_texture_bonus.c\
 bonus/game/clearing_bonus.c bonus/game/utils_bonus.c  bonus/game/mouse_hook.c\
 bonus/parsing/six_characters/colors_.c\
 bonus/parsing/others/freee.c\
+bonus/game/animation_bonus.c\
 
 OBJ=$(SRC:.c=.o)
 

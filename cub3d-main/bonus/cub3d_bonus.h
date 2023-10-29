@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 18:15:44 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 20:39:04 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define STEP 2
 # define SPEED 6
 # define SENS 0.2
+# define ANI_SPEED 5
+# define ANI_NUM 10
 
 typedef struct s_point
 {
@@ -62,6 +64,7 @@ typedef struct s_game{
 	mlx_t			*mlx;
 	mlx_image_t		*img_2d;
 	mlx_image_t		*img_3d;
+	mlx_image_t		*anim;
 	mlx_texture_t	*img;
 	t_point			position;
 	float			player_ang;
@@ -94,6 +97,7 @@ typedef struct s_all
 	int				floor[3];
 	int				ciel[3];
 	mlx_texture_t	*textures[4];
+	mlx_texture_t	*anim[10];
 	t_game			*game;	
 }	t_all;
 
@@ -198,5 +202,7 @@ void	mouse(double x, double y, void	*par);
 void	create_images(t_all *all);
 void	choose_h_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
 void	choose_v_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
+void	load_animation(t_all *all);
+void	animation(void *p);
 
 #endif

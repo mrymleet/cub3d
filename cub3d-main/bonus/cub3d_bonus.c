@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 17:08:16 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 20:13:50 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int ac, char **av)
 	mlx_loop_hook(all.game->mlx, close_window, &all);
 	mlx_cursor_hook(all.game->mlx, mouse, &all);
 	mlx_loop_hook(all.game->mlx, moving_hook, &all);
+	mlx_loop_hook(all.game->mlx, animation, &all);
 	mlx_loop(all.game->mlx);
 	mlx_terminate(all.game->mlx);
 	free_the_end(&all);

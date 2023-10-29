@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:20:01 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 18:20:29 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:35:39 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 void	free_map_pics_game(t_all *all)
 {

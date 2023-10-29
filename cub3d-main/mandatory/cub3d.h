@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 18:24:02 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 19:17:44 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_all
 	int				floor[3];
 	int				ciel[3];
 	mlx_texture_t	*textures[4];
-	t_game			*game;	
+	t_game			*game;
 }	t_all;
 
 //---------PARSING-----------------------
