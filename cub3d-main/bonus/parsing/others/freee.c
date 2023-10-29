@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_raycasting.c                                    :+:      :+:    :+:   */
+/*   freee.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:42:45 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 18:24:49 by mel-moun         ###   ########.fr       */
+/*   Created: 2023/10/29 18:20:01 by mel-moun          #+#    #+#             */
+/*   Updated: 2023/10/29 18:20:29 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3d.h"
 
-void	parsing(t_all *all)
+void	free_map_pics_game(t_all *all)
 {
-	store_player(all);
-	store_colors(all);
-	store_pictures(all);
-	store_map(all);
-	free_line_map(all);
-	if (count_rows(all->final) > 16 || count_cols(all->final) > 45)
+	if (all->game)
 	{
-		printf("Error\n");
-		free_pics(all);
-		free_map_two(all);
-		exit (1);
+		free(all->game);
+		all->game = NULL;
+	}
+	free_map(all);
+	free_pics(all);
+	exit (1);
+}
+
+void	free_map_two(t_all *all)
+{
+	int	i;
+
+	i = 0;
+	if (all->final)
+	{
+		while (all->final[i])
+		{
+			free(all->final[i]);
+			i++;
+		}
+		free(all->final);
+		all->final = NULL;
 	}
 }

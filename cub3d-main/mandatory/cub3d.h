@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 16:19:23 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:24:02 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ void	free_pics(t_all *all);
 void	free_the_end(t_all *all);
 void	free_line_map(t_all *all);
 void	free_map_pics_game(t_all *all);
+void	free_map_two(t_all *all);
 
 //some string's manipulation
 char	**split_two(char *s);

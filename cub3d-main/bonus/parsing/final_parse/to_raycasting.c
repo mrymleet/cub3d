@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:42:45 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 17:01:58 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:15:53 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,11 @@ void	parsing(t_all *all)
 	store_pictures(all);
 	store_map(all);
 	free_line_map(all);
+	if (count_rows(all->final) > 16 || count_cols(all->final) > 45)
+	{
+		printf("Error\n");
+		free_pics(all);
+		free_map_two(all);
+		exit (1);
+	}
 }

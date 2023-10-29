@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 16:57:41 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 18:05:34 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	create_window_and_images(t_all *all)
 		free_map_pics_game(all);
 	create_images(all);
 	if (mlx_image_to_window(all->game->mlx, all->game->img_3d, 0, 0) == -1)
+		free_map_pics_game(all);
+	if (mlx_image_to_window(all->game->mlx, all->game->img_2d, 0, 0) == -1)
 		free_map_pics_game(all);
 }
 

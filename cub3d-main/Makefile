@@ -22,6 +22,7 @@ mandatory/game/build.c mandatory/game/draw.c mandatory/game/move.c mandatory/gam
 mandatory/game/ray_casting/ray_cast.c mandatory/game/ray_casting/get_inters_horizontals.c mandatory/game/ray_casting/get_inters_verticals.c\
 mandatory/game/build_3d.c mandatory/game/render_texture.c \
 mandatory/game/clearing.c mandatory/game/utils.c \
+mandatory/parsing/others/freee.c\
 
 SRC_BONUS = bonus/cub3d_bonus.c \
 get_next_line/get_next_line.c\
@@ -34,6 +35,7 @@ bonus/game/ray_casting_bonus/ray_cast.c bonus/game/ray_casting_bonus/get_inters_
 bonus/game/build_3d_bonus.c bonus/game/render_texture_bonus.c\
 bonus/game/clearing_bonus.c bonus/game/utils_bonus.c  bonus/game/mouse_hook.c\
 bonus/parsing/six_characters/colors_.c\
+bonus/parsing/others/freee.c\
 
 OBJ=$(SRC:.c=.o)
 

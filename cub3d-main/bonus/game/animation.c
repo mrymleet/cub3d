@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_raycasting.c                                    :+:      :+:    :+:   */
+/*   animation.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:42:45 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 18:24:49 by mel-moun         ###   ########.fr       */
+/*   Created: 2023/10/29 17:20:28 by mel-moun          #+#    #+#             */
+/*   Updated: 2023/10/29 18:20:45 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
-void	parsing(t_all *all)
+void    animation(void *patr)
 {
-	store_player(all);
-	store_colors(all);
-	store_pictures(all);
-	store_map(all);
-	free_line_map(all);
-	if (count_rows(all->final) > 16 || count_cols(all->final) > 45)
-	{
-		printf("Error\n");
-		free_pics(all);
-		free_map_two(all);
-		exit (1);
-	}
+	static int	i;
+	static int	j;
+
+	i = 0;
+	j = 0;
+	if (j % 3 == 0)
+		i++;
+	j++;
+	if (i == 4)
+		i = 0;
+	if (j == 3 * 4)
+		j = 0;
 }
