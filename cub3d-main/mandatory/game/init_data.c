@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:04:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 12:53:52 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 16:30:10 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,7 @@ void	load_textures(t_all *all)
 		all->textures[i] = mlx_load_png(all->pics[i]);
 	if (!all->textures[0] || !all->textures[1] \
 	|| !all->textures[2] || !all->textures[3])
-	{
-		free_map(all);
-		free_pics(all);
-		exit(1);
-	}
+		free_map_pics_game(all);
 	i = -1;
 	while (++i < 4)
 	{
@@ -50,7 +46,8 @@ void	load_textures(t_all *all)
 		|| all->textures[i]->height != 512)
 		{
 			printf("Error\n");
-			exit (1);
+			free_the_end(all);
+			free_map_pics_game(all);
 		}
 	}
 }

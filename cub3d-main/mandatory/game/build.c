@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/26 19:58:37 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/29 16:27:43 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,27 @@ void	create_window_and_images(t_all *all)
 {
 	all->game = malloc(sizeof(t_game));
 	if (!all->game)
+	{
+		free_map(all);
+		free_pics(all);
 		exit(1);
+	}
 	all->game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3d", true);
 	if (!all->game->mlx)
-	{
-		free(all->game);
-		exit(1);
-	}
+		free_map_pics_game(all);
 	create_images(all);
 	if (mlx_image_to_window(all->game->mlx, all->game->img_3d, 0, 0) == -1)
-	{
-		free(all->game);
-		mlx_delete_image(all->game->mlx, all->game->img_2d);
-		mlx_delete_image(all->game->mlx, all->game->img_3d);
-		exit(1);
-	}
+		free_map_pics_game(all);
 }
 
 void	create_images(t_all *all)
 {
 	all->game->img_2d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
 	if (!all->game->img_2d)
-	{
-		mlx_delete_image(all->game->mlx, all->game->img_2d);
-		exit(1);
-	}
+		free_map_pics_game(all);
 	all->game->img_3d = mlx_new_image(all->game->mlx, WIDTH, HEIGHT);
 	if (!all->game->img_3d)
-	{
-		mlx_delete_image(all->game->mlx, all->game->img_2d);
-		mlx_delete_image(all->game->mlx, all->game->img_3d);
-		exit(1);
-	}
+		free_map_pics_game(all);
 }
 
 void	build_window(t_all *all)

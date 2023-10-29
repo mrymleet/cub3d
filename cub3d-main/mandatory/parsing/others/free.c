@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:54:54 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/26 14:55:35 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 16:28:52 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,17 @@ void	free_line_map(t_all *all)
 	if (all->line)
 		free(all->line);
 	free_map(all);
+}
+
+void	free_map_pics_game(t_all *all)
+{
+	if (all->game)
+	{
+		free(all->game);
+		all->game = NULL;
+	}
+	free_map(all);
+	free_pics(all);
+	system("leaks cub3D");
+	exit (1);
 }
