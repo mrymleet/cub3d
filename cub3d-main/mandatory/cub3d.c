@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 16:37:04 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 17:08:09 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ int	main(int ac, char **av)
 	mlx_loop(all.game->mlx);
 	mlx_terminate(all.game->mlx);
 	free_the_end(&all);
-	free(all.game);
 	return (EXIT_SUCCESS);
 }
