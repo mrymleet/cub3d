@@ -6,11 +6,11 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:37:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 13:48:57 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 17:01:18 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3d.h"
+#include "../../cub3d_bonus.h"
 
 int	surronded(t_all *all)
 {
