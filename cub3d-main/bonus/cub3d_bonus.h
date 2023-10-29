@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 12:20:39 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/29 13:50:17 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "MLX42/MLX42.h"
+# include "/Users/mel-moun/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
 
@@ -157,7 +157,6 @@ int		string_empty_one(char *str);
 void	initialize_vars(t_all *all);
 //-------------------------------------
 
-int		count_lines(char *path);
 void	create_window_and_images(t_all *all);
 void	build_window(t_all *all);
 void	draw_block(mlx_image_t *canvas, double point[2], long color);
@@ -197,6 +196,5 @@ void	mouse(double x, double y, void	*par);
 void	create_images(t_all *all);
 void	choose_h_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
 void	choose_v_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
-void	check_minimap_length(t_all *all);
 
 #endif

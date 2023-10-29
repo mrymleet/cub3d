@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:37:33 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/25 18:20:55 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 13:48:57 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	surronded(t_all *all)
 	return (0);
 }
 
-//check tab, better \t to be with all vs config
 int	up_down(t_all *all, int i)
 {
 	int		j;

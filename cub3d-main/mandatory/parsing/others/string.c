@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:55:37 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/21 17:11:52 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/29 13:48:44 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	check_num(char *tmp)
 	return (0);
 }
 
-//why two??
 int	string_empty(char *str)
 {
 	int	i;
