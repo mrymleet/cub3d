@@ -1,11 +1,10 @@
-      NO        ./textures/north_.png
-    EA  ./textures/east_.png
-   SO   ./textures/west_.png
+NO   ./textures/north.png
+EA   ./textures/east.png
+SO   ./textures/south.png
+WE   ./textures/west.png
 
-        WE ./textures/north_.png
-
-   F    20  , 20,  20
-   C    200 ,   200 ,  200
+F 20,20,20
+C 200,200,200
 
         1111111111111111111111111
         1000000000110000000000001
