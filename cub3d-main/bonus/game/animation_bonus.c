@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:20:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/30 10:38:04 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:24:38 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,16 @@ void	load_animation(t_all *all)
 	i = 0;
 	while (i < 10)
 	{
-		path = ft_strjoin2("./textures/", ft_itoa(i));
+		path = ft_strjoin_("./textures/", ft_itoa(i));
 		all->anim[i] = mlx_load_png(path);
+		if (!all->anim[i])
+		{
+			free(path);
+			free_the_end(all);
+			free_map(all);
+			free_pics(all);
+			exit(1);
+		}
 		free(path);
 		path = NULL;
 		i++;
@@ -42,7 +50,20 @@ void	animation(void *p)
 	if (i == ANI_NUM)
 		i = 0;
 	im = mlx_texture_to_image(all->game->mlx, all->anim[i]);
-	mlx_image_to_window(all->game->mlx, im, 1100, 50);
+	if (!im)
+	{
+		free_the_end(all);
+		free_map(all);
+		free_pics(all);
+		exit(1);
+	}
+	if (mlx_image_to_window(all->game->mlx, im, 1100, 50) == -1)
+	{
+		free_the_end(all);
+		free_map(all);
+		free_pics(all);
+		exit(1);
+	}
 	s++;
 	if (s == ANI_SPEED * ANI_NUM)
 		s = 0;

@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:25:34 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 19:22:41 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:04:18 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (p);
 }
 
-char	*ft_strjoin2(char const *s1, char const *s2)
+char	*ft_strjoin_(char const *s1, char const *s2)
 {
 	size_t	i;
 	char	*p;
