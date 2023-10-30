@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   animation_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:20:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/29 20:34:51 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:38:04 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	load_animation(t_all *all)
 {
 	int		i;
 	char	*path;
-	
+
 	i = 0;
 	while (i < 10)
 	{
