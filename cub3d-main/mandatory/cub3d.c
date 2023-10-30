@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/30 10:26:16 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:54:04 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	free_the_end(t_all *all)
 		free(all->game);
 		all->game = NULL;
 	}
+	free_map(all);
+	free_pics(all);
 }
 
 int	main(int ac, char **av)
