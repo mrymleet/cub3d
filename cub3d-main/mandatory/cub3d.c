@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 11:15:14 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 18:08:00 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:26:16 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(int ac, char **av)
 	if (is_map_valid(&all))
 	{
 		printf("Error\n");
+		system("leaks cub3D");
 		return (1);
 	}
 	parsing(&all);

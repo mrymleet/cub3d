@@ -1,15 +1,11 @@
+NO ./textures/est_.png
+EA ./textures/east_.png
+SO ./textures/west_.png
 
+WE ./textures/north_.png
 
-    NO ./textures/est_.png
-
-EA    ./textures/east_.png
-   SO    ./textures/west_.png
-
-
-  F   20   ,  20   ,  20
-   C   200   ,  200   ,  200
-
-   WE     ./textures/north_.png
+F 20,20,20
+C 200,200,200
 
 
 

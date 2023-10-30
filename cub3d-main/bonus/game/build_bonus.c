@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/29 18:05:34 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 10:46:55 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	create_window_and_images(t_all *all)
 		free_pics(all);
 		exit(1);
 	}
-	all->game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3d", true);
+	all->game->mlx = mlx_init(WIDTH, HEIGHT, "CUB3d", false);
 	if (!all->game->mlx)
 		free_map_pics_game(all);
 	create_images(all);
