@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:07 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/30 12:27:02 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 16:06:55 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ void	draw_square(t_all *all, int x, int y)
 
 	point[0] = x * SQUARE_SIZE;
 	point[1] = y * SQUARE_SIZE;
-	draw_block(all->game->img_2d, point,
+	draw_block(all, all->game->img_2d, point,
 		specify_color(all->map[y][x]));
 }

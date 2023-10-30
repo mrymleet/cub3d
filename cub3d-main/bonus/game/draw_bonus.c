@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:42:42 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/28 12:23:55 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/30 16:12:54 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	draw_rays(t_all *data)
 	}
 }
 
-void	draw_block(mlx_image_t *canvas, double point[2], long color)
+void	draw_block(t_all *data, mlx_image_t *canvas, \
+	double point[2], long color)
 {
 	int				col;
 	int				row;
@@ -49,11 +50,12 @@ void	draw_block(mlx_image_t *canvas, double point[2], long color)
 		col = -1;
 		while (++col < SQUARE_SIZE)
 		{
-			if ((pos.x + col) / SCALE > 0 && (pos.y + row) / SCALE > 0
-				&& (pos.x + col) / SCALE < canvas->width
-				&& (pos.y + row) / SCALE < canvas->height)
-				mlx_put_pixel(canvas, (pos.x + col) / SCALE,
-					(pos.y + row) / SCALE, color);
+			if ((pos.x + col) / data->scale > 0
+				&& (pos.y + row) / data->scale > 0
+				&& (pos.x + col) / data->scale < canvas->width
+				&& (pos.y + row) / data->scale < canvas->height)
+				mlx_put_pixel(canvas, (pos.x + col) / data->scale,
+					(pos.y + row) / data->scale, color);
 		}
 	}
 }
@@ -72,10 +74,12 @@ void	draw_play(t_all *all, long color)
 		col = -1;
 		while (++col < PLAYER_SIZE)
 		{
-			if ((pos.x + col) / SCALE > 0 && (pos.x + col) / SCALE < WIDTH
-				&& (pos.y + row) / SCALE > 0 && (pos.y + row) / SCALE < HEIGHT)
-				mlx_put_pixel(all->game->img_2d, (pos.x + col) / SCALE,
-					(pos.y + row) / SCALE, color);
+			if ((pos.x + col) / all->scale > 0
+				&& (pos.x + col) / all->scale < WIDTH
+				&& (pos.y + row) / all->scale > 0
+				&& (pos.y + row) / all->scale < HEIGHT)
+				mlx_put_pixel(all->game->img_2d, (pos.x + col) / all->scale,
+					(pos.y + row) / all->scale, color);
 		}
 	}
 }

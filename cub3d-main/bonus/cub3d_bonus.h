@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/30 13:17:00 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 16:11:19 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <math.h>
 # include "../libft/libft.h"
 # include "../get_next_line/get_next_line.h"
-# include "/Users/mel-moun/MLX42/include/MLX42/MLX42.h"
+# include "/Users/mdenguir/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <unistd.h>
 
@@ -26,7 +26,7 @@
 
 # define SQUARE_SIZE 64
 # define PLAYER_SIZE 10
-# define SCALE 4
+# define SCALE 8
 # define STEP 2
 # define SPEED 6
 # define SENS 0.2
@@ -96,7 +96,8 @@ typedef struct s_all
 	int				ciel[3];
 	mlx_texture_t	*textures[4];
 	mlx_texture_t	*anim[10];
-	t_game			*game;	
+	t_game			*game;
+	int				scale;
 }	t_all;
 
 //---------PARSING-----------------------
@@ -164,7 +165,8 @@ void	initialize_vars(t_all *all);
 
 void	create_window_and_images(t_all *all);
 void	build_window(t_all *all);
-void	draw_block(mlx_image_t *canvas, double point[2], long color);
+void	draw_block(t_all *data, mlx_image_t *canvas,
+			double point[2], long color);
 void	draw_play(t_all *all, long color);
 long	specify_color(char c);
 void	close_window(void	*param);
@@ -203,5 +205,6 @@ void	choose_h_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
 void	choose_v_texture(t_all *data, t_ray ray, mlx_texture_t **texture);
 void	load_animation(t_all *all);
 void	animation(void *p);
+void	get_scale(t_all *data);
 
 #endif

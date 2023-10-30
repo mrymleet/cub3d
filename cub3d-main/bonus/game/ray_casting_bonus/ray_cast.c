@@ -6,7 +6,7 @@
 /*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 22:44:00 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/23 12:42:04 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/30 16:11:50 by mdenguir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,15 @@ void	draw_ray(t_all *data, t_point src, t_ray ray)
 	i = -1;
 	while (++i < step)
 	{
-		if ((src.x / SCALE >= 0 && src.x / SCALE < data->game->img_2d->width)
-			&& (src.y / SCALE >= 0
-				&& src.y / SCALE < data->game->img_2d->height))
+		if ((src.x / data->scale >= 0
+				&& src.x / data->scale < data->game->img_2d->width)
+			&& (src.y / data->scale >= 0
+				&& src.y / data->scale < data->game->img_2d->height))
 		{
 			if (wall_detected(data, src))
 				break ;
-			mlx_put_pixel(data->game->img_2d, src.x / SCALE,
-				src.y / SCALE, 0xFF0000FF);
+			mlx_put_pixel(data->game->img_2d, src.x / data->scale,
+				src.y / data->scale, 0xFF0000FF);
 		}
 		increment(&src, d, step);
 	}
