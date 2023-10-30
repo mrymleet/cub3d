@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_raycasting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdenguir <mdenguir@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 11:42:45 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/30 16:10:43 by mdenguir         ###   ########.fr       */
+/*   Updated: 2023/10/30 17:07:50 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	parsing(t_all *all)
 	store_pictures(all);
 	store_map(all);
 	free_line_map(all);
+	if (count_rows(all->final) > 40 || count_cols(all->final) > 65)
+	{
+		printf("Error\n");
+		free_pics(all);
+		free_map_two(all);
+		exit (1);
+	}
 	get_scale(all);
 }
 
@@ -35,13 +42,6 @@ void	get_scale(t_all *data)
 		data->scale = 6;
 	else if (len_cols <= 30 || len_rows <= 30)
 		data->scale = 8;
-	else if (len_cols <= 40 || len_rows <= 40)
+	else if (len_cols <= 65 || len_rows <= 40)
 		data->scale = 10;
-	else
-	{
-		printf("Error\n");
-		free_pics(data);
-		free_map_two(all);
-		exit (1);
-	}
 }
