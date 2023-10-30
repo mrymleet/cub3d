@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 18:20:01 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/30 12:35:36 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:42:38 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ void	free_map_two(t_all *all)
 		free(all->final);
 		all->final = NULL;
 	}
+}
+
+void	free_error(t_all *all)
+{
+	free_the_end(all);
+	free_map(all);
+	free_pics(all);
+	exit (1);
 }

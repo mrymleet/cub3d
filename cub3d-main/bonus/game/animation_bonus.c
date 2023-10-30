@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 17:20:28 by mel-moun          #+#    #+#             */
-/*   Updated: 2023/10/30 12:38:53 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 12:46:19 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,9 @@ void	animation(void *p)
 		i = 0;
 	im = mlx_texture_to_image(all->game->mlx, all->anim[i]);
 	if (!im)
-	{
-		free_the_end(all);
-		free_map(all);
-		free_pics(all);
-		exit(1);
-	}
+		free_error(all);
 	if (mlx_image_to_window(all->game->mlx, im, 1100, 50) == -1)
-	{
-		free_the_end(all);
-		free_map(all);
-		free_pics(all);
-		exit(1);
-	}
+		free_error(all);
 	s++;
 	if (s == ANI_SPEED * ANI_NUM)
 		s = 0;
