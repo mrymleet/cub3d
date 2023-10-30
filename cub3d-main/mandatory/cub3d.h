@@ -6,7 +6,7 @@
 /*   By: mel-moun <mel-moun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 12:11:08 by mdenguir          #+#    #+#             */
-/*   Updated: 2023/10/30 10:42:30 by mel-moun         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:12:10 by mel-moun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,8 @@ typedef struct s_game{
 	mlx_t			*mlx;
 	mlx_image_t		*img_2d;
 	mlx_image_t		*img_3d;
-	mlx_texture_t	*img;
 	t_point			position;
 	float			player_ang;
-	t_ray			ray;
 	int32_t			mouse_x;
 	int32_t			mouse_y;
 }	t_game;
