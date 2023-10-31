@@ -1,5 +1,5 @@
 <p align="center">
-  <h1>CUB 3D</h1>
+  <h1>cub3D</h1>
 </p>
 
 Cub3D is a clone of the famous Wolfenstein 3D video game, released in 1992. It is one of the first 3D video games, thanks to the raycasting technique: virtual "rays" are launched from the player and the walls and Obstacles are displayed on the screen according to their distance from the camera. It is therefore a "false" 3D, where the obstacles and enemies are only two-dimensional images.
